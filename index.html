@@ -8,7 +8,6 @@
   <meta property="og:description" content="Há 13 anos harmonizando rostos com naturalidade. Dra. Carol Segura e Dra. Juliana Segura.">
   <meta property="og:type" content="website">
   <title>Segura & Co — Harmonização Facial em Catanduva e Miami</title>
-  <!-- N — SVG favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231A1A1A'/%3E%3Ctext x='32' y='46' font-family='Parisienne%2Ccursive' font-size='38' fill='%23FAF6F1' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,28 +40,13 @@
   </script>
 </head>
 <body>
-  <!-- 1 — Preloader (hidden if reduced-motion via JS before DOMContentLoaded) -->
+  <!-- Preloader -->
   <div class="preloader" id="preloader" aria-hidden="true">
     <span class="preloader__logo">Segura &amp; Co.</span>
     <div class="preloader__line"></div>
   </div>
 
-  <!-- 2 — Custom cursor elements (desktop only, inserted via JS) -->
-
-  <!-- F — Rotating seal (desktop only) -->
-  <a class="rotating-seal" id="rotating-seal" href="#contato" aria-label="Ir para contato — Est. MMXIII" title="Segura & Co — Est. MMXIII">
-    <svg class="rotating-seal__svg" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <path id="circle-path" d="M 55,55 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"/>
-      </defs>
-      <text class="rotating-seal__text">
-        <textPath href="#circle-path" startOffset="0%">EST · MMXIII · CATANDUVA · MIAMI · </textPath>
-      </text>
-    </svg>
-    <span class="rotating-seal__center">S&amp;Co</span>
-  </a>
-
-  <!-- 6 — Side progress indicator (built by JS) -->
+  <!-- Side progress indicator (built by JS) -->
   <nav class="progress-nav" id="progress-nav" aria-label="Navegação por seção" hidden></nav>
 
   <a class="skip" href="#home">Pular para o conteúdo</a>
@@ -76,6 +60,7 @@
       <a href="#servicos">Serviços</a>
       <a href="#cursos">Cursos</a>
       <a href="#clinica">Clínica</a>
+      <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
       <a href="#contato" class="btn btn-primary nav__cta">Agendar</a>
     </nav>
@@ -88,272 +73,278 @@
     <a href="#servicos">Serviços</a>
     <a href="#cursos">Cursos</a>
     <a href="#clinica">Clínica</a>
+    <a href="#faq">FAQ</a>
     <a href="#contato">Contato</a>
     <a href="#contato" class="btn btn-primary">Agendar consulta</a>
   </div>
 </header>
 
-  <!-- SECTION 1: Hero -->
+  <!-- SECTION 1: Hero — foco clínica -->
   <section id="home" class="hero" aria-labelledby="hero-title" data-section="home">
-  <!-- K — Hero spotlight (inserted by JS) -->
   <div class="hero__spotlight" aria-hidden="true"></div>
   <div class="hero__grid">
     <div class="hero__text" data-reveal>
-      <span class="label hero__eyebrow">Est. 2013 · Catanduva · Miami</span>
-      <h1 id="hero-title" class="h-serif hero__title" data-split>
+      <span class="label hero__eyebrow" data-letter-spread>Est. 2013 · Catanduva · Miami</span>
+      <h1 id="hero-title" class="h-serif hero__title" data-split data-mask-reveal>
         Beleza com <em class="italic" style="color:var(--caramel)">ciência.</em><br>
         Resultado com <em class="italic">naturalidade.</em>
       </h1>
       <p class="hero__sub">
-        Há 13 anos harmonizando rostos com sensibilidade clínica.<br>
-        Dra. Carol Segura · <span style="color:var(--caramel)">CROSP 109060</span>
+        Clínica de harmonização facial em Catanduva e Miami.<br>
+        13 anos de experiência, método próprio, equipe médica formada por duas irmãs.
       </p>
       <div class="hero__ctas">
         <a href="#contato" class="btn btn-primary btn--large">Agendar consulta</a>
-        <a href="#cursos" class="btn btn-outline">Cursos VIP →</a>
+        <a href="#cursos" class="btn btn-outline arrow-link">Cursos VIP <span class="arrow">→</span></a>
       </div>
       <div class="hero__meta">
         <span>@seguraecompany</span>
-        <span>52,3k +</span>
+        <span>Catanduva · Miami</span>
         <span>Scroll ↓</span>
       </div>
     </div>
-    <div class="hero__image" data-reveal>
-      <img src="imagens/foto-doutora.jpg" alt="Dra. Carol Segura" width="900" height="1200">
-      <span class="hero__signature">Dra. Carol Segura</span>
-      <span class="hero__counter">01 / 04</span>
+    <div class="hero__image hero__image--kenburns" data-reveal>
+      <img src="imagens/escadas-lustre.jpg" alt="Escadaria da clínica Segura & Co em Catanduva" width="900" height="1200">
     </div>
   </div>
 </section>
 
-  <!-- 4 — Marquee strip between Hero and Sobre -->
-  <div class="marquee-strip" aria-hidden="true">
-    <div class="marquee-strip__inner">
-      <span class="marquee-strip__text">HARMONIZAÇÃO FACIAL <span class="marquee-strip__sep">✦</span> RINOMODELAÇÃO <span class="marquee-strip__sep">✦</span> PREENCHIMENTO LABIAL <span class="marquee-strip__sep">✦</span> BOTOX <span class="marquee-strip__sep">✦</span> BIOESTIMULADORES <span class="marquee-strip__sep">✦</span> OLHEIRAS <span class="marquee-strip__sep">✦</span> BICHECTOMIA <span class="marquee-strip__sep">✦</span> LAVIEEN <span class="marquee-strip__sep">✦</span> CATANDUVA <span class="marquee-strip__sep">✦</span> MIAMI <span class="marquee-strip__sep">✦</span></span>
-      <span class="marquee-strip__text">HARMONIZAÇÃO FACIAL <span class="marquee-strip__sep">✦</span> RINOMODELAÇÃO <span class="marquee-strip__sep">✦</span> PREENCHIMENTO LABIAL <span class="marquee-strip__sep">✦</span> BOTOX <span class="marquee-strip__sep">✦</span> BIOESTIMULADORES <span class="marquee-strip__sep">✦</span> OLHEIRAS <span class="marquee-strip__sep">✦</span> BICHECTOMIA <span class="marquee-strip__sep">✦</span> LAVIEEN <span class="marquee-strip__sep">✦</span> CATANDUVA <span class="marquee-strip__sep">✦</span> MIAMI <span class="marquee-strip__sep">✦</span></span>
-    </div>
-  </div>
-
-  <!-- SECTION 2: Sobre -->
+  <!-- SECTION 2: Sobre — sisters editorial -->
   <section id="sobre" class="sobre" aria-labelledby="sobre-title" data-section="sobre">
-  <!-- B — Sticky section label -->
   <div class="section-sticky-label" aria-hidden="true"><span>01 — As fundadoras</span></div>
+  <div class="sobre__strip" data-reveal>
+    <img src="imagens/carolEjuliana.jpg" alt="Dra. Carol e Dra. Juliana Segura" loading="lazy" width="2100" height="900">
+    <span class="sobre__strip-caption">Dra. Carol &amp; Dra. Juliana Segura</span>
+  </div>
   <div class="container">
     <div class="sobre__header" data-reveal>
-      <span class="label"><span class="section-num">01 —</span> As fundadoras</span>
-      <h2 id="sobre-title" class="h-serif sobre__title" data-split>Duas irmãs.<br>Uma mesma <em class="italic">filosofia</em>.</h2>
+      <span class="chapter-hairline" aria-hidden="true"></span>
+      <span class="label" data-letter-spread><span class="section-num">01 —</span> As fundadoras</span>
+      <h2 id="sobre-title" class="h-serif sobre__title" data-split data-mask-reveal>Duas irmãs.<br>Uma mesma <em class="italic">filosofia</em>.</h2>
     </div>
     <div class="sobre__grid">
       <article class="doctor" data-reveal>
-        <div class="doctor__photo"><img src="imagens/foto-doutora-2.jpg" alt="Dra. Carol Segura" loading="lazy" width="600" height="800"></div>
-        <div class="doctor__body">
-          <span class="doctor__tag">CROSP 109060 · Verificada</span>
-          <h3 class="h-serif doctor__name">Dra. Carol Segura</h3>
-          <p class="doctor__bio">Treze anos de clínica dedicados à harmonização facial. Formada e especializada em procedimentos injetáveis avançados, atende em Catanduva e ministra cursos para profissionais em Miami. Reconhecida por resultados naturais e por um olhar que respeita a anatomia de cada paciente.</p>
-          <a class="doctor__ig" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener">@dra.carolsegura →</a>
-        </div>
+        <span class="doctor__tag">CROSP 109060 · Catanduva &amp; Miami</span>
+        <h3 class="h-serif doctor__name">Dra. Carol Segura</h3>
+        <p class="doctor__bio">CROSP 109060. Treze anos de harmonização facial. Referência nacional em rinomodelação sem corte. Atende Catanduva e Miami. Método próprio de naturalidade baseado em anatomia, proporção áurea e leitura de expressão. Mais de 52 mil seguidoras acompanham o dia-a-dia clínico pelo @dra.carolsegura. Formação continuada entre Brasil e Estados Unidos, ministra cursos VIP para dentistas e médicas injetoras que buscam dominar a técnica com viés de sutileza.</p>
+        <a class="doctor__ig arrow-link" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener">@dra.carolsegura <span class="arrow">→</span></a>
       </article>
       <article class="doctor" data-reveal>
-        <div class="doctor__photo doctor__photo--placeholder" aria-label="Dra. Juliana Segura — foto em breve">
-          <span class="doctor__initials">JS</span>
-          <span class="doctor__placeholder-label">Foto em breve</span>
-        </div>
-        <div class="doctor__body">
-          <span class="doctor__tag">Sócia · Cofundadora</span>
-          <h3 class="h-serif doctor__name">Dra. Juliana Segura</h3>
-          <p class="doctor__bio">Complementa a clínica com sensibilidade e escuta. Junto com a irmã, construiu a Segura & Co como um espaço onde ciência e acolhimento caminham lado a lado — para pacientes e para profissionais em formação.</p>
-          <a class="doctor__ig" href="https://www.instagram.com/drajulianasegura/" target="_blank" rel="noopener">@drajulianasegura →</a>
-        </div>
+        <span class="doctor__tag">Sócia · Cirurgiã-dentista</span>
+        <h3 class="h-serif doctor__name">Dra. Juliana Segura</h3>
+        <p class="doctor__bio">Cirurgiã-dentista com especialização em harmonização orofacial. Sócia da clínica, responsável por protocolos de bioestimuladores e tratamento de terço inferior. Formação continuada entre Brasil e Estados Unidos. Atendimento acolhedor, foco em resultado sutil e duradouro. Complementa a prática da irmã com escuta ativa, leitura anatômica minuciosa e um olhar clínico voltado para a integridade da expressão de cada paciente. @drajulianasegura.</p>
+        <a class="doctor__ig arrow-link" href="https://www.instagram.com/drajulianasegura/" target="_blank" rel="noopener">@drajulianasegura <span class="arrow">→</span></a>
       </article>
     </div>
   </div>
 </section>
 
-  <!-- SECTION 3: Serviços — C: Horizontal scroll -->
+  <!-- SECTION 3: Procedimentos — zigzag editorial -->
   <section id="servicos" class="servicos" aria-labelledby="servicos-title" data-section="servicos">
-  <!-- B — Sticky section label -->
   <div class="section-sticky-label" aria-hidden="true"><span>02 — O que fazemos</span></div>
   <div class="container">
     <div class="servicos__header" data-reveal>
-      <span class="label"><span class="section-num">02 —</span> O que fazemos</span>
-      <h2 id="servicos-title" class="h-serif servicos__title" data-split>Procedimentos com <em class="italic">propósito</em>.</h2>
-      <p class="servicos__intro">Cada protocolo é pensado a partir da anatomia, das expressões e dos objetivos reais de quem está na cadeira.</p>
+      <span class="chapter-hairline" aria-hidden="true"></span>
+      <span class="label" data-letter-spread><span class="section-num">02 —</span> O que fazemos</span>
+      <h2 id="servicos-title" class="h-serif servicos__title" data-split data-mask-reveal>Cada procedimento, uma <em class="italic">conversa</em> antes de uma técnica.</h2>
     </div>
   </div>
-  <!-- C — Horizontal scroll track (outside container for full-bleed) -->
-  <div class="servicos__scroll-wrap">
-    <div class="servicos__track" id="servicos-track" role="list" tabindex="0" aria-label="Serviços — role para ver mais">
-      <article class="service" role="listitem" data-reveal>
-        <span class="service__num">01</span>
-        <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14c1.5 1.5 6.5 1.5 8 0"/><circle cx="9" cy="10" r="0.5" fill="currentColor"/><circle cx="15" cy="10" r="0.5" fill="currentColor"/></svg>
-        <h3 class="h-serif service__title">Harmonização<br>Facial</h3>
-        <p class="service__desc">Protocolo completo pensado para equilibrar proporções, preservando expressão e identidade.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-      <article class="service" role="listitem" data-reveal>
-        <span class="service__num">02</span>
-        <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M12 3v18M10 7c-1 1-1 3 0 5M14 7c1 1 1 3 0 5"/></svg>
-        <h3 class="h-serif service__title">Rino&shy;modelação</h3>
-        <p class="service__desc">Refinamento do contorno nasal com ácido hialurônico, sem cirurgia, resultado em uma sessão.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-      <article class="service" role="listitem" data-reveal>
-        <span class="service__num">03</span>
-        <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 12c3-3 13-3 16 0-3 3-13 3-16 0z"/><path d="M8 12c0-1 8-1 8 0"/></svg>
-        <h3 class="h-serif service__title">Preenchimento<br>Labial</h3>
-        <p class="service__desc">Volume e definição respeitando o formato natural dos lábios — sempre discreto.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-      <article class="service" role="listitem" data-reveal>
-        <span class="service__num">04</span>
-        <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 10h16M6 10v2a6 6 0 0012 0v-2"/><path d="M10 6l2-2 2 2"/></svg>
-        <h3 class="h-serif service__title">Botox</h3>
-        <p class="service__desc">Aplicação de toxina botulínica para suavizar expressões sem travar o movimento.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-      <article class="service" role="listitem" data-reveal>
-        <span class="service__num">05</span>
-        <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7" stroke-dasharray="2 2"/></svg>
-        <h3 class="h-serif service__title">Bioestimuladores<br>(PDRN)</h3>
-        <p class="service__desc">Estímulo de colágeno e regeneração celular para pele mais firme e luminosa.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-      <article class="service" role="listitem" data-reveal>
-        <span class="service__num">06</span>
-        <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 12c2-4 6-4 8 0 2 4 6 4 8 0"/><circle cx="8" cy="11" r="1"/><circle cx="16" cy="11" r="1"/></svg>
-        <h3 class="h-serif service__title">Tratamento de<br>Olheiras</h3>
-        <p class="service__desc">Protocolo específico para área dos olhos, unindo preenchimento e bioestímulo quando indicado.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-      <article class="service" role="listitem" data-reveal>
-        <span class="service__num">07</span>
-        <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M12 4c-5 0-8 4-8 8s3 8 8 8 8-4 8-8-3-8-8-8z"/><path d="M9 12a3 3 0 006 0"/></svg>
-        <h3 class="h-serif service__title">Bichectomia</h3>
-        <p class="service__desc">Redução das bolsas de Bichat para afinar o terço inferior do rosto, técnica minimamente invasiva.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-      <article class="service" role="listitem" data-reveal>
-        <span class="service__num">08</span>
-        <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M5 14c2 4 12 4 14 0"/><path d="M7 11c0-3 10-3 10 0"/></svg>
-        <h3 class="h-serif service__title">Lipo de Papada</h3>
-        <p class="service__desc">Definição do contorno mandibular com redução de gordura submentoniana.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-      <article class="service service--feature" role="listitem" data-reveal>
-        <span class="service__num">09</span>
-        <div class="service__photo"><img src="imagens/maquina-lavieen.jpg" alt="Tratamento LAVIEEN" loading="lazy" width="600" height="400"></div>
-        <h3 class="h-serif service__title">LAVIEEN</h3>
-        <p class="service__desc">Tecnologia coreana de rejuvenescimento: melhora textura, poros e luminosidade sem downtime.</p>
-        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
-      </article>
-    </div>
-    <!-- C — Horizontal progress bar -->
-    <div class="servicos__progress-wrap" aria-hidden="true">
-      <div class="servicos__progress-bar" id="servicos-progress"></div>
-    </div>
-  </div>
-</section>
 
-  <!-- SECTION 4: Filosofia — H: Dark section -->
-  <section class="filosofia filosofia--dark" aria-labelledby="filosofia-title" data-section="filosofia">
-  <!-- B — Sticky section label -->
-  <div class="section-sticky-label section-sticky-label--light" aria-hidden="true"><span>03 — Como trabalhamos</span></div>
+  <!-- 5 editorial zigzag blocks -->
+  <article class="proc-block" data-reveal>
+    <div class="proc-block__image"><img src="imagens/colagem.jpg" alt="Harmonização facial — protocolo multiponto" loading="lazy" width="900" height="1100"></div>
+    <div class="proc-block__body">
+      <span class="label proc-block__label" data-letter-spread>01 — Harmonização Facial</span>
+      <h3 class="h-serif proc-block__title">Harmonização <em class="italic">Facial</em>.</h3>
+      <p class="proc-block__copy">Estudo de proporções antes de qualquer agulha. Leitura de expressão, análise de terços e de simetria, planejamento multiponto com ácido hialurônico de alta reticulação. O protocolo acompanha a anatomia de cada paciente — nunca a tendência da temporada. Produto dosado com precisão, aplicação por camadas, respeito integral ao movimento natural do rosto. Foco em sutileza, jamais em transformação. O que você percebe no espelho é a mesma pessoa, descansada, em equilíbrio. O que as pessoas ao redor percebem é algo difícil de nomear — e esse é exatamente o ponto.</p>
+      <dl class="proc-block__meta">
+        <div><dt>Duração</dt><dd>90 min</dd></div>
+        <div><dt>Anestesia</dt><dd>Tópica</dd></div>
+        <div><dt>Retorno</dt><dd>15 dias</dd></div>
+      </dl>
+      <a href="#contato" class="arrow-link proc-block__cta">Agendar avaliação <span class="arrow">→</span></a>
+    </div>
+  </article>
+
+  <article class="proc-block proc-block--reverse" data-reveal>
+    <div class="proc-block__image"><img src="imagens/colagem-2.jpg" alt="Rinomodelação sem corte" loading="lazy" width="900" height="1100"></div>
+    <div class="proc-block__body">
+      <span class="label proc-block__label" data-letter-spread>02 — Rinomodelação</span>
+      <h3 class="h-serif proc-block__title">Rino<em class="italic">modelação</em>.</h3>
+      <p class="proc-block__copy">Técnica sem corte, sem cirurgia, sem afastamento. Correção de giba, projeção de ponta, simetria e definição do dorso em uma única sessão. Ácido hialurônico específico para região nasal, aplicação em planos profundos, resultado entre 18 e 24 meses. Dra. Carol é referência nacional no procedimento e treina profissionais Brasil afora. A avaliação começa antes — com fotografia em perfil, frontal e três quartos, análise de proporção áurea e conversa franca sobre o que faz sentido para o seu rosto. Nem todo nariz pede correção, e essa honestidade faz parte do método.</p>
+      <dl class="proc-block__meta">
+        <div><dt>Duração</dt><dd>45 min</dd></div>
+        <div><dt>Anestesia</dt><dd>Tópica</dd></div>
+        <div><dt>Retorno</dt><dd>7 dias</dd></div>
+      </dl>
+      <a href="#contato" class="arrow-link proc-block__cta">Agendar avaliação <span class="arrow">→</span></a>
+    </div>
+  </article>
+
+  <article class="proc-block" data-reveal>
+    <div class="proc-block__image"><img src="imagens/colagem-3.jpg" alt="Preenchimento labial natural" loading="lazy" width="900" height="1100"></div>
+    <div class="proc-block__body">
+      <span class="label proc-block__label" data-letter-spread>03 — Preenchimento Labial</span>
+      <h3 class="h-serif proc-block__title">Preenchimento <em class="italic">Labial</em>.</h3>
+      <p class="proc-block__copy">Hidratação, contorno, proporção. Boca que parece sua, nunca volume exagerado. O produto é dosado conforme anatomia, formato do arco de cupido e leitura da expressão em movimento. Trabalhamos camada por camada, com avaliação contínua durante a aplicação. A premissa é sempre a mesma: sair da cadeira com lábios que acompanham o restante do rosto, sem denunciar técnica. Quando indicado, combinamos com bioestímulo para textura e firmeza da pele perioral. O retoque é avaliado em retorno, sempre em prol do resultado discreto.</p>
+      <dl class="proc-block__meta">
+        <div><dt>Duração</dt><dd>40 min</dd></div>
+        <div><dt>Anestesia</dt><dd>Tópica</dd></div>
+        <div><dt>Retorno</dt><dd>15 dias</dd></div>
+      </dl>
+      <a href="#contato" class="arrow-link proc-block__cta">Agendar avaliação <span class="arrow">→</span></a>
+    </div>
+  </article>
+
+  <article class="proc-block proc-block--reverse" data-reveal>
+    <div class="proc-block__image"><img src="imagens/colagem-4.jpg" alt="Bioestimuladores e PDRN" loading="lazy" width="900" height="1100"></div>
+    <div class="proc-block__body">
+      <span class="label proc-block__label" data-letter-spread>04 — Bioestimuladores &amp; PDRN</span>
+      <h3 class="h-serif proc-block__title">Bioestimuladores <em class="italic">&amp; PDRN</em>.</h3>
+      <p class="proc-block__copy">Estímulo de colágeno, firmeza de pele, melhora de textura e qualidade cutânea. Protocolo estruturado em três sessões mensais, resultado progressivo entre 60 e 90 dias após a última aplicação. PDRN — polinucleotídeos de última geração para regeneração celular, especialmente indicado para áreas delicadas como contorno dos olhos e pescoço. Combinamos os dois ativos conforme leitura de pele, idade biológica e objetivo. Desconforto mínimo durante a sessão, sem downtime. A partir da terceira aplicação, a diferença é visível — principalmente na luz natural.</p>
+      <dl class="proc-block__meta">
+        <div><dt>Duração</dt><dd>60 min</dd></div>
+        <div><dt>Desconforto</dt><dd>Mínimo</dd></div>
+        <div><dt>Resultado</dt><dd>60–90 dias</dd></div>
+      </dl>
+      <a href="#contato" class="arrow-link proc-block__cta">Agendar avaliação <span class="arrow">→</span></a>
+    </div>
+  </article>
+
+  <article class="proc-block" data-reveal>
+    <div class="proc-block__image"><img src="imagens/maquina-lavieen.jpg" alt="LAVIEEN — laser coreano" loading="lazy" width="900" height="1100"></div>
+    <div class="proc-block__body">
+      <span class="label proc-block__label" data-letter-spread>05 — LAVIEEN</span>
+      <h3 class="h-serif proc-block__title"><em class="italic">LAVIEEN</em>.</h3>
+      <p class="proc-block__copy">Laser coreano de última geração. Microagulhamento com radiofrequência combinado à entrega transdérmica de ativos. Rejuvenescimento, textura, luminosidade, controle de poros e firmeza de contorno. Tecnologia exclusiva Segura &amp; Co em Catanduva. Sem agulha, sem downtime — você sai da sessão e volta para a rotina no mesmo dia. Protocolo customizável conforme tipo de pele, fase de tratamento e objetivo. Pode ser combinado com outros procedimentos do plano, respeitando intervalo seguro. Para quem busca qualidade de pele visível, sem marca, sem pausa.</p>
+      <dl class="proc-block__meta">
+        <div><dt>Duração</dt><dd>50 min</dd></div>
+        <div><dt>Agulha</dt><dd>Zero</dd></div>
+        <div><dt>Downtime</dt><dd>Zero</dd></div>
+      </dl>
+      <a href="#contato" class="arrow-link proc-block__cta">Agendar avaliação <span class="arrow">→</span></a>
+    </div>
+  </article>
+
   <div class="container">
-    <div class="filosofia__header" data-reveal>
-      <span class="label filosofia__label"><span class="section-num">03 —</span> Como trabalhamos</span>
-      <h2 id="filosofia-title" class="h-serif filosofia__title" data-split>Três pilares que guiam cada <em class="italic">decisão clínica</em>.</h2>
-    </div>
-    <div class="filosofia__grid">
-      <div class="pilar" data-reveal>
-        <svg class="pilar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M16 4v24M8 10l8-6 8 6M8 22l8 6 8-6"/></svg>
-        <h3 class="h-serif pilar__title">Ciência</h3>
-        <p class="pilar__desc">Estudo contínuo e atualização técnica. Cada protocolo vem de evidência clínica, não de tendência.</p>
-      </div>
-      <div class="pilar" data-reveal>
-        <svg class="pilar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M6 20c4-8 16-8 20 0"/><circle cx="16" cy="20" r="2"/></svg>
-        <h3 class="h-serif pilar__title">Naturalidade</h3>
-        <p class="pilar__desc">O resultado respeita a anatomia e preserva a sua identidade. Ninguém precisa saber — só você vai se sentir melhor.</p>
-      </div>
-      <div class="pilar" data-reveal>
-        <svg class="pilar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M16 28s-10-6-10-14a6 6 0 0110-4 6 6 0 0110 4c0 8-10 14-10 14z"/></svg>
-        <h3 class="h-serif pilar__title">Sensibilidade</h3>
-        <p class="pilar__desc">Escuta ativa antes de qualquer agulha. Entender o que você quer e o que faz sentido pra você.</p>
+    <div class="servicos__secondary" data-reveal>
+      <span class="label" data-letter-spread>Também realizamos</span>
+      <div class="servicos__secondary-grid">
+        <div class="sec-card">
+          <svg class="sec-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 10h16M6 10v2a6 6 0 0012 0v-2"/></svg>
+          <h4 class="h-serif sec-card__title">Toxina Botulínica</h4>
+          <p class="sec-card__desc">Expressão suave, relaxamento preventivo.</p>
+        </div>
+        <div class="sec-card">
+          <svg class="sec-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 12c2-4 6-4 8 0 2 4 6 4 8 0"/></svg>
+          <h4 class="h-serif sec-card__title">Tratamento de Olheiras</h4>
+          <p class="sec-card__desc">Produto específico, redução de sombras.</p>
+        </div>
+        <div class="sec-card">
+          <svg class="sec-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M12 4c-5 0-8 4-8 8s3 8 8 8 8-4 8-8-3-8-8-8z"/><path d="M9 12a3 3 0 006 0"/></svg>
+          <h4 class="h-serif sec-card__title">Bichectomia</h4>
+          <p class="sec-card__desc">Afinamento de terço inferior, procedimento cirúrgico.</p>
+        </div>
+        <div class="sec-card">
+          <svg class="sec-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M5 14c2 4 12 4 14 0"/><path d="M7 11c0-3 10-3 10 0"/></svg>
+          <h4 class="h-serif sec-card__title">Lipo de Papada</h4>
+          <p class="sec-card__desc">Definição de contorno mandibular.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-  <!-- SECTION 5: Cursos — already dark -->
+  <!-- SECTION 4: Cursos VIP -->
   <section id="cursos" class="cursos" aria-labelledby="cursos-title" data-section="cursos">
-  <!-- B — Sticky section label -->
-  <div class="section-sticky-label section-sticky-label--light" aria-hidden="true"><span>04 — Para profissionais</span></div>
-  <div class="cursos__grid">
-    <div class="cursos__image" data-reveal>
-      <img src="imagens/foto-curso-1.jpg" alt="Curso VIP de harmonização" loading="lazy" width="900" height="1100">
+  <div class="section-sticky-label section-sticky-label--light" aria-hidden="true"><span>03 — Para profissionais</span></div>
+  <div class="container">
+    <div class="cursos__grid">
+      <div class="cursos__images" data-reveal>
+        <div class="cursos__img-frame cursos__img-frame--kenburns"><img src="imagens/curso-1.jpg" alt="Curso VIP — bastidor da aula" loading="lazy" width="900" height="560"></div>
+        <div class="cursos__img-frame cursos__img-frame--kenburns"><img src="imagens/foto-curso-1.jpg" alt="Hands-on do curso VIP" loading="lazy" width="900" height="560"></div>
+      </div>
+      <div class="cursos__body" data-reveal>
+        <span class="chapter-hairline chapter-hairline--light" aria-hidden="true"></span>
+        <span class="label cursos__eyebrow" data-letter-spread><span class="section-num">03 —</span> Formação para injetoras</span>
+        <h2 id="cursos-title" class="h-serif cursos__title" data-split data-mask-reveal>Cursos <em class="italic">VIP</em> Segura &amp; Co.</h2>
+        <p class="cursos__desc">Formação avançada para dentistas e médicas injetoras que buscam dominar técnicas de alto padrão com viés de naturalidade. Turmas reduzidas, hands-on desde o primeiro dia, mentoria continuada após o curso. Conteúdo autoral desenvolvido na prática clínica da Segura &amp; Co — o que ensinamos é o mesmo que aplicamos todos os dias.</p>
+        <div class="cursos__cards">
+          <div class="course-card">
+            <span class="course-card__tag" data-letter-spread>Curso RINO</span>
+            <ul class="course-card__list">
+              <li>3 dias imersivos</li>
+              <li>Rinomodelação sem corte</li>
+              <li>Anatomia, marcação, execução ao vivo</li>
+              <li>Certificação Segura &amp; Co</li>
+              <li>Miami ou Catanduva</li>
+            </ul>
+            <a href="#contato" class="arrow-link course-card__cta">Lista de espera <span class="arrow">→</span></a>
+          </div>
+          <div class="course-card">
+            <span class="course-card__tag" data-letter-spread>Curso VIP Naturalidade</span>
+            <ul class="course-card__list">
+              <li>5 dias</li>
+              <li>Harmonização completa</li>
+              <li>Protocolo autoral de naturalidade</li>
+              <li>Mentoria pós-curso 90 dias</li>
+              <li>Turmas de até 6 alunas</li>
+            </ul>
+            <a href="#contato" class="arrow-link course-card__cta">Lista de espera <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="cursos__body" data-reveal>
-      <span class="label cursos__eyebrow"><span class="section-num">04 —</span> Para profissionais injetores</span>
-      <h2 id="cursos-title" class="h-serif cursos__title" data-split>Cursos <em class="italic">VIP</em>.<br>Formação de quem treina.</h2>
-      <p class="cursos__desc">Turmas reduzidas, mentoria individual e foco em técnicas autorais da Dra. Carol Segura. Os cursos <strong>RINO</strong> e <strong>VIP de Naturalidade</strong> são estruturados pra levar dentistas e médicas injetoras a outro patamar — com prática clínica real e acompanhamento pós-curso.</p>
-      <ul class="cursos__bullets">
-        <li>Turmas em Catanduva e Miami</li>
-        <li>Grupo restrito · vagas limitadas</li>
-        <li>Técnica de rinomodelação autoral</li>
-        <li>Protocolo de naturalidade proprietário</li>
-      </ul>
-      <a href="#contato" class="btn cursos__cta btn--large">Entrar na lista de espera →</a>
-    </div>
+  </div>
+  <div class="cursos__strip" data-reveal>
+    <img src="imagens/curso-2.jpg" alt="Curso VIP — turma Segura & Co" loading="lazy" width="2100" height="420">
+    <blockquote class="cursos__strip-quote">"Ensinamos o que fazemos todos os dias.<br>Nada mais, nada menos."</blockquote>
   </div>
 </section>
 
-  <!-- E — Pull-quote section between Cursos and Clinica -->
-  <section class="pullquote" aria-label="Citação" data-section="pullquote">
-    <div class="pullquote__hairline pullquote__hairline--top" aria-hidden="true"></div>
-    <div class="pullquote__inner">
-      <blockquote class="pullquote__text">
-        "Naturalidade é não parecer que fez —<br class="pullquote__br"> e ainda assim, parecer melhor."
-      </blockquote>
-      <cite class="pullquote__caption">— Dra. Carol Segura</cite>
-    </div>
-    <div class="pullquote__hairline pullquote__hairline--bottom" aria-hidden="true"></div>
-  </section>
-
-  <!-- SECTION 6: Clínica -->
+  <!-- SECTION 5: Clínica -->
   <section id="clinica" class="clinica" aria-labelledby="clinica-title" data-section="clinica">
-  <!-- B — Sticky section label -->
-  <div class="section-sticky-label" aria-hidden="true"><span>05 — O espaço</span></div>
+  <div class="section-sticky-label" aria-hidden="true"><span>04 — O espaço</span></div>
+  <div class="clinica__hero" data-reveal>
+    <img src="imagens/logo-parede.jpg" alt="Logo Segura & Co na parede da clínica" loading="lazy" width="2100" height="600">
+  </div>
   <div class="container">
     <div class="clinica__header" data-reveal>
-      <span class="label"><span class="section-num">05 —</span> O espaço</span>
-      <h2 id="clinica-title" class="h-serif clinica__title" data-split>Uma clínica <em class="italic">pensada</em> para acolher.</h2>
-      <p class="clinica__intro">Inaugurada recentemente em Catanduva, a Segura & Co nasceu pra unir experiência clínica e conforto. Cada detalhe — da iluminação à escolha dos materiais — foi pensado pra que você se sinta em casa.</p>
+      <span class="chapter-hairline" aria-hidden="true"></span>
+      <span class="label" data-letter-spread><span class="section-num">04 —</span> Nosso espaço · Catanduva-SP</span>
+      <h2 id="clinica-title" class="h-serif clinica__title" data-split data-mask-reveal>Uma clínica <em class="italic">pensada</em> para acolher.</h2>
+      <p class="clinica__intro">Inaugurada no final de 2025. Projeto assinado sob medida — madeira clara, caramelo, curvas. Recepção acolhedora, salas clínicas com tecnologia de ponta, ambiente pensado para que cada paciente se sinta em casa. Três andares, elevador, estacionamento próprio. Um espaço que traduz em arquitetura o mesmo método do atendimento.</p>
     </div>
     <div class="clinica__mosaic">
-      <!-- J — mixed aspect ratios: tall, standard, 16/9 wide -->
-      <div class="clinica__tile clinica__tile--tall" data-reveal><img src="imagens/escadas-lustre.jpg" alt="Escada com lustres da clínica" loading="lazy" width="600" height="900"></div>
-      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-1.jpg" alt="Recepção" loading="lazy" width="600" height="450"></div>
-      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-3.jpg" alt="Sala de atendimento" loading="lazy" width="600" height="450"></div>
-      <div class="clinica__tile clinica__tile--wide clinica__tile--cinema" data-reveal><img src="imagens/foto-espaco-marca.jpg" alt="Espaço da marca" loading="lazy" width="900" height="500"></div>
-      <div class="clinica__tile clinica__tile--portrait" data-reveal><img src="imagens/foto-clinica-interna-6.jpg" alt="Detalhe do espaço" loading="lazy" width="600" height="450"></div>
-      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-8.jpg" alt="Ambiente interno" loading="lazy" width="600" height="450"></div>
+      <div class="clinica__tile clinica__tile--a" data-reveal><img src="imagens/foto-clinica-interna-1.jpg" alt="Recepção da clínica" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--b" data-reveal><img src="imagens/foto-clinica-interna-2.jpg" alt="Ambiente interno" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--c" data-reveal><img src="imagens/foto-clinica-interna-3.jpg" alt="Sala de atendimento" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--d" data-reveal><img src="imagens/foto-clinica-interna-4.jpg" alt="Detalhe do espaço" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--e" data-reveal><img src="imagens/foto-clinica-interna-5.jpg" alt="Corredor" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--f" data-reveal><img src="imagens/foto-clinica-interna-6.jpg" alt="Sala clínica" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--g" data-reveal><img src="imagens/foto-clinica-interna-7.jpg" alt="Ambiente" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--h" data-reveal><img src="imagens/foto-clinica-interna-8.jpg" alt="Espaço de espera" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--i" data-reveal><img src="imagens/foto-clinica-interna-10.jpg" alt="Detalhe arquitetônico" loading="lazy"></div>
+      <div class="clinica__tile clinica__tile--j" data-reveal><img src="imagens/foto-espaco-marca.jpg" alt="Espaço da marca" loading="lazy"></div>
     </div>
+    <blockquote class="clinica__quote" data-reveal>Um espaço físico que fala a mesma língua do atendimento — <em class="italic">calmo, preciso, acolhedor</em>.</blockquote>
   </div>
 </section>
 
-  <!-- SECTION 7: Depoimentos -->
+  <!-- SECTION 6: Depoimentos -->
   <section class="depo" aria-labelledby="depo-title" data-section="depo">
-  <!-- B — Sticky section label -->
-  <div class="section-sticky-label" aria-hidden="true"><span>06 — O que dizem</span></div>
+  <div class="section-sticky-label" aria-hidden="true"><span>05 — O que dizem</span></div>
   <div class="container">
     <div class="depo__header" data-reveal>
-      <span class="label"><span class="section-num">06 —</span> O que dizem</span>
-      <h2 id="depo-title" class="h-serif depo__title" data-split>Quem passou pela <em class="italic">cadeira</em>.</h2>
+      <span class="chapter-hairline" aria-hidden="true"></span>
+      <span class="label" data-letter-spread><span class="section-num">05 —</span> O que dizem</span>
+      <h2 id="depo-title" class="h-serif depo__title" data-split data-mask-reveal>Quem passou pela <em class="italic">cadeira</em>.</h2>
     </div>
     <div class="depo__carousel" data-reveal>
       <button class="depo__arrow depo__arrow--prev" aria-label="Depoimento anterior">←</button>
       <div class="depo__track" id="depo-track">
         <article class="depo__slide" aria-hidden="false">
-          <blockquote class="depo__quote">"Saí da Segura & Co parecendo eu mesma — só que melhor. A Dra. Carol entendeu exatamente o que eu queria sem exagerar em nada."</blockquote>
+          <blockquote class="depo__quote">"Saí da Segura &amp; Co parecendo eu mesma — só que melhor. A Dra. Carol entendeu exatamente o que eu queria sem exagerar em nada."</blockquote>
           <div class="depo__who"><strong>Paciente de harmonização facial</strong><span>Catanduva-SP</span></div>
         </article>
         <article class="depo__slide" aria-hidden="true">
@@ -372,15 +363,26 @@
       <button class="depo__arrow depo__arrow--next" aria-label="Próximo depoimento">→</button>
       <div class="depo__dots" role="tablist" aria-label="Depoimentos"></div>
     </div>
+    <div class="depo__prints" data-reveal>
+      <figure class="depo__print">
+        <img src="imagens/feedback-1.jpg" alt="Mensagem real de paciente" loading="lazy">
+        <figcaption>Mensagem real · @dra.carolsegura</figcaption>
+      </figure>
+      <figure class="depo__print">
+        <img src="imagens/feedback-2.jpg" alt="Mensagem real de paciente" loading="lazy">
+        <figcaption>Mensagem real · @dra.carolsegura</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-  <!-- SECTION 8: Instagram -->
+  <!-- SECTION 7: Instagram -->
   <section class="insta" aria-labelledby="insta-title" data-section="insta">
   <div class="container">
     <div class="insta__header" data-reveal>
-      <span class="label"><span class="section-num">07 —</span> @dra.carolsegura · 52,3k seguidores</span>
-      <h2 id="insta-title" class="h-serif insta__title" data-split>Siga o <em class="italic">bastidor</em>.</h2>
+      <span class="chapter-hairline" aria-hidden="true"></span>
+      <span class="label" data-letter-spread><span class="section-num">06 —</span> @dra.carolsegura · 52,3k seguidores</span>
+      <h2 id="insta-title" class="h-serif insta__title" data-split data-mask-reveal>Siga o <em class="italic">bastidor</em>.</h2>
     </div>
     <div class="insta__grid" data-reveal>
       <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
@@ -388,7 +390,45 @@
       <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem-3.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
       <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/colagem-4.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
       <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/foto-marca-conceitual.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
-      <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/seguraeco.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
+      <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/foto-espaco-marca.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
+    </div>
+  </div>
+</section>
+
+  <!-- SECTION 8: FAQ -->
+  <section id="faq" class="faq" aria-labelledby="faq-title" data-section="faq">
+  <div class="section-sticky-label" aria-hidden="true"><span>07 — Perguntas frequentes</span></div>
+  <div class="container">
+    <div class="faq__header" data-reveal>
+      <span class="chapter-hairline" aria-hidden="true"></span>
+      <span class="label" data-letter-spread><span class="section-num">07 —</span> Perguntas frequentes</span>
+      <h2 id="faq-title" class="h-serif faq__title" data-split data-mask-reveal>Antes de <em class="italic">agendar</em>.</h2>
+    </div>
+    <div class="faq__list" data-reveal>
+      <details class="faq__item">
+        <summary class="faq__q">Quanto tempo dura o resultado? <span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__a"><p>Depende do procedimento: ácido hialurônico de 12 a 18 meses, rinomodelação de 18 a 24, bioestimuladores de 18 a 24 com estímulo contínuo de colágeno. Avaliamos individualmente conforme metabolismo, anatomia e protocolo.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Dói? <span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__a"><p>Utilizamos anestésico tópico e produto com lidocaína. Desconforto mínimo. Pacientes relatam, em média, um nível 2 ou 3 numa escala de 10.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Fica natural? <span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__a"><p>Sim. Naturalidade é nosso valor central. Dosagem conservadora, leitura de expressão, resultado que parece seu — nunca artificial.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Atendem em Miami? <span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__a"><p>Sim. Dra. Carol atende Miami em datas específicas ao longo do ano. Consulte a agenda via WhatsApp para as próximas janelas disponíveis.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Aceitam plano de saúde? <span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__a"><p>Procedimentos estéticos não têm cobertura de plano. Parcelamos em até 12x no cartão.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Posso retocar depois? <span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__a"><p>Sim. Retoque incluso até 30 dias quando clinicamente indicado. Avaliação sem custo.</p></div>
+      </details>
     </div>
   </div>
 </section>
@@ -398,8 +438,9 @@
   <div class="container">
     <div class="contato__grid">
       <div class="contato__info" data-reveal>
-        <span class="label"><span class="section-num">08 —</span> Agendamento</span>
-        <h2 id="contato-title" class="h-serif contato__title" data-split>Vamos <em class="italic">conversar</em>.</h2>
+        <span class="chapter-hairline" aria-hidden="true"></span>
+        <span class="label" data-letter-spread><span class="section-num">08 —</span> Agendamento</span>
+        <h2 id="contato-title" class="h-serif contato__title" data-split data-mask-reveal>Vamos <em class="italic">conversar</em>.</h2>
         <p class="contato__sub">Escolha o formato que preferir. Retornamos em até 24h úteis.</p>
         <dl class="contato__list">
           <div><dt>Clínica</dt><dd>Catanduva-SP · Brasil</dd></div>
@@ -410,7 +451,6 @@
         </dl>
       </div>
       <form class="contato__form" id="contato-form" data-reveal novalidate>
-        <!-- L — VAGAS LIMITADAS micro-label -->
         <p class="contato__vagas">Vagas Limitadas</p>
         <label class="field">
           <span>Nome</span>
@@ -427,8 +467,8 @@
             <option>Harmonização Facial</option>
             <option>Rinomodelação</option>
             <option>Preenchimento Labial</option>
-            <option>Botox</option>
-            <option>Bioestimuladores (PDRN)</option>
+            <option>Toxina Botulínica</option>
+            <option>Bioestimuladores / PDRN</option>
             <option>Tratamento de Olheiras</option>
             <option>Bichectomia</option>
             <option>Lipo de Papada</option>
@@ -441,7 +481,6 @@
           <span>Mensagem</span>
           <textarea name="mensagem" rows="4"></textarea>
         </label>
-        <!-- L — Submit as btn--large -->
         <button type="submit" class="btn btn-primary btn--large contato__submit">Enviar</button>
         <p class="contato__status" id="contato-status" aria-live="polite"></p>
       </form>
@@ -450,7 +489,6 @@
 </section>
 
   <footer class="footer">
-  <!-- M — Background watermark -->
   <div class="footer__watermark" aria-hidden="true">Segura &amp; Co.</div>
   <div class="container footer__inner">
     <div class="footer__brand">
@@ -464,19 +502,13 @@
       <a href="#servicos">Serviços</a>
       <a href="#cursos">Cursos</a>
       <a href="#clinica">Clínica</a>
+      <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
     </nav>
     <div class="footer__social">
       <a href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener">@seguraecompany</a>
       <a href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener">@dra.carolsegura</a>
       <a href="https://linktr.ee/carolsegura" target="_blank" rel="noopener">linktr.ee/carolsegura</a>
-    </div>
-  </div>
-  <!-- 4 — Footer marquee -->
-  <div class="footer-marquee" aria-hidden="true">
-    <div class="footer-marquee__inner">
-      <span class="footer-marquee__text">@SEGURAECOMPANY <span class="footer-marquee__sep">·</span> CROSP 109060 <span class="footer-marquee__sep">·</span> EST. 2013 <span class="footer-marquee__sep">·</span> CATANDUVA-SP <span class="footer-marquee__sep">·</span> MIAMI-FL <span class="footer-marquee__sep">·</span> DRA. CAROL SEGURA <span class="footer-marquee__sep">·</span> DRA. JULIANA SEGURA <span class="footer-marquee__sep">·</span> HARMONIZAÇÃO FACIAL <span class="footer-marquee__sep">·</span> NATURALIDADE <span class="footer-marquee__sep">·</span> CIÊNCIA <span class="footer-marquee__sep">·</span> SENSIBILIDADE <span class="footer-marquee__sep">·</span></span>
-      <span class="footer-marquee__text">@SEGURAECOMPANY <span class="footer-marquee__sep">·</span> CROSP 109060 <span class="footer-marquee__sep">·</span> EST. 2013 <span class="footer-marquee__sep">·</span> CATANDUVA-SP <span class="footer-marquee__sep">·</span> MIAMI-FL <span class="footer-marquee__sep">·</span> DRA. CAROL SEGURA <span class="footer-marquee__sep">·</span> DRA. JULIANA SEGURA <span class="footer-marquee__sep">·</span> HARMONIZAÇÃO FACIAL <span class="footer-marquee__sep">·</span> NATURALIDADE <span class="footer-marquee__sep">·</span> CIÊNCIA <span class="footer-marquee__sep">·</span> SENSIBILIDADE <span class="footer-marquee__sep">·</span></span>
     </div>
   </div>
   <div class="footer__meta container">

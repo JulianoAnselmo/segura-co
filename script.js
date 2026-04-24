@@ -1,12 +1,8 @@
-// Segura & Co — interações do site (v3 — luxury edition)
-
-// ─── Motion / pointer preference detection ───────────────────────────────────
+// Segura & Co — Round 3: premium editorial
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
 
-// ─── Bootstrap ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  // Enhancement 1: Preloader (skip entirely under reduced-motion)
   if (!prefersReducedMotion) {
     initPreloader();
   } else {
@@ -15,54 +11,35 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('is-loading');
     initSplitText(true);
     initScrollObserver();
+    initLuxAnimations(true);
   }
 
   initMobileMenu();
   initCarousel();
   initForm();
+  initFaq();
 
-  // Enhancement 2: Custom cursor (desktop, no reduced-motion, no coarse)
-  if (!prefersReducedMotion && !coarsePointer) {
-    initCustomCursor();
-  }
-
-  // Enhancement 5: Magnetic CTAs (desktop, no reduced-motion, no coarse)
   if (!prefersReducedMotion && !coarsePointer) {
     initMagneticCTAs();
   }
 
-  // Enhancement 6: Side progress indicator
   initProgressNav();
 
-  // Enhancement 7: Parallax on images
   if (!prefersReducedMotion) {
     initParallax();
   }
 
-  // Enhancement 8: 3D tilt on service cards
   if (!prefersReducedMotion && !coarsePointer) {
     initTilt();
-  }
-
-  // C — Horizontal scroll for Serviços
-  initServicosScroll();
-
-  // K — Hero mouse-follow spotlight
-  if (!prefersReducedMotion && !coarsePointer) {
     initHeroSpotlight();
   }
-
-  // F — Rotating seal hide-near-footer logic
-  initRotatingSeal();
 });
 
-// ─── 1. PRELOADER ─────────────────────────────────────────────────────────────
+// ─── PRELOADER ────────────────────────────────────────────────────────────────
 function initPreloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
-
   document.body.classList.add('is-loading');
-
   const slideDelay = 1500;
   setTimeout(() => {
     preloader.classList.add('is-leaving');
@@ -71,23 +48,19 @@ function initPreloader() {
       document.body.classList.remove('is-loading');
       initSplitText(false);
       initScrollObserver();
+      initLuxAnimations(false);
       revealHeroWords();
     }, { once: true });
   }, slideDelay);
 }
 
-// ─── 10. SPLIT-TEXT STAGGER REVEAL ────────────────────────────────────────────
+// ─── SPLIT-TEXT ───────────────────────────────────────────────────────────────
 function initSplitText(immediate) {
   const headings = document.querySelectorAll('[data-split]');
-  headings.forEach(heading => {
-    splitHeadingIntoWords(heading);
-  });
+  headings.forEach(heading => splitHeadingIntoWords(heading));
 
   if (immediate) {
-    document.querySelectorAll('.word').forEach(w => {
-      w.style.opacity = '1';
-      w.style.transform = 'none';
-    });
+    document.querySelectorAll('.word').forEach(w => w.classList.add('is-visible'));
     return;
   }
 
@@ -102,9 +75,7 @@ function initSplitText(immediate) {
   }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
 
   headings.forEach(heading => {
-    if (heading.id !== 'hero-title') {
-      splitIO.observe(heading);
-    }
+    if (heading.id !== 'hero-title') splitIO.observe(heading);
   });
 }
 
@@ -126,8 +97,7 @@ function splitHeadingIntoWords(el) {
 function processNode(source, target) {
   source.childNodes.forEach(node => {
     if (node.nodeType === Node.TEXT_NODE) {
-      const text = node.textContent;
-      const parts = text.split(/(\s+)/);
+      const parts = node.textContent.split(/(\s+)/);
       parts.forEach(part => {
         if (/^\s+$/.test(part)) {
           target.appendChild(document.createTextNode(part));
@@ -147,9 +117,6 @@ function processNode(source, target) {
         if (node.style.cssText) emClone.style.cssText = node.style.cssText;
         processNode(node, emClone);
         target.appendChild(emClone);
-      } else if (node.tagName === 'SPAN') {
-        const spanClone = node.cloneNode(true);
-        target.appendChild(spanClone);
       } else {
         const clone = node.cloneNode(true);
         target.appendChild(clone);
@@ -160,9 +127,7 @@ function processNode(source, target) {
 
 function staggerWords(words, baseDelay) {
   words.forEach((word, i) => {
-    setTimeout(() => {
-      word.classList.add('is-visible');
-    }, baseDelay + i * 80);
+    setTimeout(() => word.classList.add('is-visible'), baseDelay + i * 80);
   });
 }
 
@@ -183,58 +148,36 @@ function initScrollObserver() {
   document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 }
 
-// ─── 2. CUSTOM CURSOR ─────────────────────────────────────────────────────────
-function initCustomCursor() {
-  const dot = document.createElement('div');
-  dot.className = 'cursor-dot';
-  dot.setAttribute('aria-hidden', 'true');
+// ─── LUXURY ANIMATIONS (letter-spread, chapter-hairline) ──────────────────────
+function initLuxAnimations(immediate) {
+  const spreadEls = document.querySelectorAll('[data-letter-spread]');
+  const hairlines = document.querySelectorAll('.chapter-hairline');
 
-  const ring = document.createElement('div');
-  ring.className = 'cursor-ring';
-  ring.setAttribute('aria-hidden', 'true');
-
-  document.body.appendChild(dot);
-  document.body.appendChild(ring);
-  document.body.classList.add('custom-cursor');
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let ringX = mouseX;
-  let ringY = mouseY;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  const hoverTargets = 'a, button, .service, .insta__tile, .clinica__tile';
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(hoverTargets)) ring.classList.add('is-hover');
-  });
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(hoverTargets)) ring.classList.remove('is-hover');
-  });
-
-  function animateCursor() {
-    dot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
-    const lerp = 0.12;
-    ringX += (mouseX - ringX) * lerp;
-    ringY += (mouseY - ringY) * lerp;
-    ring.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
-    requestAnimationFrame(animateCursor);
+  if (immediate) {
+    spreadEls.forEach(e => e.classList.add('is-spread'));
+    hairlines.forEach(h => h.classList.add('is-drawn'));
+    return;
   }
 
-  animateCursor();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-spread');
+        entry.target.classList.add('is-drawn');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '0px 0px -40px 0px' });
 
-  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+  spreadEls.forEach(el => io.observe(el));
+  hairlines.forEach(h => io.observe(h));
 }
 
-// ─── 5. MAGNETIC CTAs ─────────────────────────────────────────────────────────
+// ─── MAGNETIC CTAs (halved strength) ──────────────────────────────────────────
 function initMagneticCTAs() {
   const buttons = document.querySelectorAll('.btn');
   const RADIUS = 60;
-  const STRENGTH = 0.35;
+  const STRENGTH = 0.175; // halved from 0.35
 
   buttons.forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
@@ -252,7 +195,7 @@ function initMagneticCTAs() {
   });
 }
 
-// ─── 6. SIDE PROGRESS INDICATOR ───────────────────────────────────────────────
+// ─── SIDE PROGRESS INDICATOR ──────────────────────────────────────────────────
 function initProgressNav() {
   const nav = document.getElementById('progress-nav');
   if (!nav) return;
@@ -264,12 +207,11 @@ function initProgressNav() {
     home: 'Início',
     sobre: 'Sobre',
     servicos: 'Serviços',
-    filosofia: 'Filosofia',
     cursos: 'Cursos',
-    pullquote: 'Citação',
     clinica: 'Clínica',
     depo: 'Depoimentos',
     insta: 'Instagram',
+    faq: 'FAQ',
     contato: 'Contato',
   };
 
@@ -305,16 +247,14 @@ function initProgressNav() {
   if (dots[0]) dots[0].classList.add('is-active');
 }
 
-// ─── 7. PARALLAX ON IMAGES ────────────────────────────────────────────────────
+// ─── PARALLAX (halved factor) ─────────────────────────────────────────────────
 function initParallax() {
   const parallaxImgs = document.querySelectorAll(
-    '.hero__image img, .doctor__photo img, .cursos__image img, .clinica__tile img'
+    '.proc-block__image img, .sobre__strip img, .clinica__hero img'
   );
-
   if (parallaxImgs.length === 0) return;
 
   parallaxImgs.forEach(img => { img.style.willChange = 'transform'; });
-
   let ticking = false;
 
   function updateParallax() {
@@ -325,8 +265,8 @@ function initParallax() {
       const distFromCenter = centerY - vh / 2;
       const normalized = distFromCenter / (vh * 0.8);
       const clamped = Math.max(-1, Math.min(1, normalized));
-      const offset = clamped * 24;
-      img.style.transform = `translateY(${offset}px) scale(1.06)`;
+      const offset = clamped * 12; // halved from 24
+      img.style.transform = `translateY(${offset}px) scale(1.04)`;
     });
     ticking = false;
   }
@@ -337,14 +277,13 @@ function initParallax() {
       ticking = true;
     }
   }, { passive: true });
-
   updateParallax();
 }
 
-// ─── 8. 3D TILT ON SERVICE CARDS ──────────────────────────────────────────────
+// ─── 3D TILT ON SECONDARY CARDS (halved max-deg) ──────────────────────────────
 function initTilt() {
-  const cards = document.querySelectorAll('.service');
-  const MAX_DEG = 4;
+  const cards = document.querySelectorAll('.sec-card, .course-card');
+  const MAX_DEG = 2; // halved from 4
 
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -363,72 +302,7 @@ function initTilt() {
   });
 }
 
-// ─── C. HORIZONTAL SCROLL FOR SERVIÇOS ────────────────────────────────────────
-function initServicosScroll() {
-  const track = document.getElementById('servicos-track');
-  const progressBar = document.getElementById('servicos-progress');
-  if (!track) return;
-
-  // Update progress bar on scroll
-  function updateProgress() {
-    const max = track.scrollWidth - track.clientWidth;
-    const pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
-    if (progressBar) progressBar.style.width = pct + '%';
-  }
-
-  track.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
-
-  // Keyboard arrows to scroll
-  track.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      track.scrollBy({ left: 380, behavior: 'smooth' });
-    } else if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      track.scrollBy({ left: -380, behavior: 'smooth' });
-    }
-  });
-
-  // Drag-to-scroll on desktop (no coarse pointer)
-  if (!coarsePointer) {
-    let isDragging = false;
-    let startX = 0;
-    let scrollStart = 0;
-
-    track.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startX = e.clientX;
-      scrollStart = track.scrollLeft;
-      track.style.userSelect = 'none';
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      track.scrollLeft = scrollStart - dx;
-    });
-
-    const stopDrag = () => {
-      if (!isDragging) return;
-      isDragging = false;
-      track.style.userSelect = '';
-    };
-
-    document.addEventListener('mouseup', stopDrag);
-    document.addEventListener('mouseleave', stopDrag);
-
-    // Prevent click-through on drag
-    track.addEventListener('click', (e) => {
-      if (Math.abs(track.scrollLeft - scrollStart) > 4) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    }, { capture: true });
-  }
-}
-
-// ─── K. HERO MOUSE-FOLLOW SPOTLIGHT ───────────────────────────────────────────
+// ─── HERO SPOTLIGHT ───────────────────────────────────────────────────────────
 function initHeroSpotlight() {
   const hero = document.querySelector('.hero');
   const spotlight = document.querySelector('.hero__spotlight');
@@ -436,7 +310,6 @@ function initHeroSpotlight() {
 
   let mx = 50, my = 50;
   let lerpX = 50, lerpY = 50;
-  let rafId;
 
   hero.addEventListener('mousemove', (e) => {
     const rect = hero.getBoundingClientRect();
@@ -444,42 +317,16 @@ function initHeroSpotlight() {
     my = ((e.clientY - rect.top) / rect.height) * 100;
   });
 
-  hero.addEventListener('mouseleave', () => {
-    mx = 50; my = 50;
-  });
+  hero.addEventListener('mouseleave', () => { mx = 50; my = 50; });
 
   function animateSpotlight() {
     const speed = 0.05;
     lerpX += (mx - lerpX) * speed;
     lerpY += (my - lerpY) * speed;
-    spotlight.style.setProperty('--mx', lerpX.toFixed(2) + '%');
-    spotlight.style.setProperty('--my', lerpY.toFixed(2) + '%');
-    // Rebuild the gradient with the new values since CSS vars in gradient need repaint
     spotlight.style.background = `radial-gradient(circle 500px at ${lerpX.toFixed(2)}% ${lerpY.toFixed(2)}%, rgba(201,169,110,0.06) 0%, transparent 70%)`;
-    rafId = requestAnimationFrame(animateSpotlight);
+    requestAnimationFrame(animateSpotlight);
   }
-
   animateSpotlight();
-}
-
-// ─── F. ROTATING SEAL — HIDE NEAR FOOTER ──────────────────────────────────────
-function initRotatingSeal() {
-  const seal = document.getElementById('rotating-seal');
-  const footer = document.querySelector('.footer');
-  if (!seal || !footer) return;
-
-  function checkSealVisibility() {
-    const footerRect = footer.getBoundingClientRect();
-    const nearFooter = footerRect.top < window.innerHeight + 400;
-    if (nearFooter) {
-      seal.classList.add('is-hidden');
-    } else {
-      seal.classList.remove('is-hidden');
-    }
-  }
-
-  window.addEventListener('scroll', checkSealVisibility, { passive: true });
-  checkSealVisibility();
 }
 
 // ─── MOBILE MENU ──────────────────────────────────────────────────────────────
@@ -533,6 +380,18 @@ function initCarousel() {
   const carousel = document.querySelector('.depo__carousel');
   carousel.addEventListener('mouseenter', () => clearInterval(timer));
   carousel.addEventListener('mouseleave', () => { timer = setInterval(() => go(idx + 1), 7000); });
+}
+
+// ─── FAQ (ensure only one open at a time — optional, nicer UX) ────────────────
+function initFaq() {
+  const items = document.querySelectorAll('.faq__item');
+  items.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        items.forEach(other => { if (other !== item) other.open = false; });
+      }
+    });
+  });
 }
 
 // ─── FORM ─────────────────────────────────────────────────────────────────────

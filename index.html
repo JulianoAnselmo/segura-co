@@ -39,6 +39,17 @@
   </script>
 </head>
 <body>
+  <!-- 1 — Preloader (hidden if reduced-motion via JS before DOMContentLoaded) -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <span class="preloader__logo">Segura &amp; Co.</span>
+    <div class="preloader__line"></div>
+  </div>
+
+  <!-- 2 — Custom cursor elements (desktop only, inserted via JS) -->
+
+  <!-- 6 — Side progress indicator (built by JS) -->
+  <nav class="progress-nav" id="progress-nav" aria-label="Navegação por seção" hidden></nav>
+
   <a class="skip" href="#home">Pular para o conteúdo</a>
   <header class="nav" role="banner">
   <div class="container nav__inner">
@@ -66,11 +77,13 @@
     <a href="#contato" class="btn btn-primary">Agendar consulta</a>
   </div>
 </header>
-  <section id="home" class="hero" aria-labelledby="hero-title">
+
+  <!-- SECTION 1: Hero -->
+  <section id="home" class="hero" aria-labelledby="hero-title" data-section="home">
   <div class="hero__grid">
     <div class="hero__text" data-reveal>
       <span class="label hero__eyebrow">Est. 2013 · Catanduva · Miami</span>
-      <h1 id="hero-title" class="h-serif hero__title">
+      <h1 id="hero-title" class="h-serif hero__title" data-split>
         Beleza com <em class="italic" style="color:var(--caramel)">ciência.</em><br>
         Resultado com <em class="italic">naturalidade.</em>
       </h1>
@@ -95,11 +108,22 @@
     </div>
   </div>
 </section>
-  <section id="sobre" class="sobre" aria-labelledby="sobre-title">
+
+  <!-- 4 — Marquee strip between Hero and Sobre -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-strip__inner">
+      <!-- Two identical runs for seamless infinite loop -->
+      <span class="marquee-strip__text">HARMONIZAÇÃO FACIAL <span class="marquee-strip__sep">✦</span> RINOMODELAÇÃO <span class="marquee-strip__sep">✦</span> PREENCHIMENTO LABIAL <span class="marquee-strip__sep">✦</span> BOTOX <span class="marquee-strip__sep">✦</span> BIOESTIMULADORES <span class="marquee-strip__sep">✦</span> OLHEIRAS <span class="marquee-strip__sep">✦</span> BICHECTOMIA <span class="marquee-strip__sep">✦</span> LAVIEEN <span class="marquee-strip__sep">✦</span> CATANDUVA <span class="marquee-strip__sep">✦</span> MIAMI <span class="marquee-strip__sep">✦</span></span>
+      <span class="marquee-strip__text">HARMONIZAÇÃO FACIAL <span class="marquee-strip__sep">✦</span> RINOMODELAÇÃO <span class="marquee-strip__sep">✦</span> PREENCHIMENTO LABIAL <span class="marquee-strip__sep">✦</span> BOTOX <span class="marquee-strip__sep">✦</span> BIOESTIMULADORES <span class="marquee-strip__sep">✦</span> OLHEIRAS <span class="marquee-strip__sep">✦</span> BICHECTOMIA <span class="marquee-strip__sep">✦</span> LAVIEEN <span class="marquee-strip__sep">✦</span> CATANDUVA <span class="marquee-strip__sep">✦</span> MIAMI <span class="marquee-strip__sep">✦</span></span>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Sobre -->
+  <section id="sobre" class="sobre" aria-labelledby="sobre-title" data-section="sobre">
   <div class="container">
     <div class="sobre__header" data-reveal>
-      <span class="label">As fundadoras</span>
-      <h2 id="sobre-title" class="h-serif sobre__title">Duas irmãs.<br>Uma mesma <em class="italic">filosofia</em>.</h2>
+      <span class="label"><span class="section-num">01 —</span> As fundadoras</span>
+      <h2 id="sobre-title" class="h-serif sobre__title" data-split>Duas irmãs.<br>Uma mesma <em class="italic">filosofia</em>.</h2>
     </div>
     <div class="sobre__grid">
       <article class="doctor" data-reveal>
@@ -112,7 +136,6 @@
         </div>
       </article>
       <article class="doctor" data-reveal>
-        <!-- TODO: substituir por foto real da Dra. Juliana quando disponível -->
         <div class="doctor__photo doctor__photo--placeholder" aria-label="Dra. Juliana Segura — foto em breve">
           <span class="doctor__initials">JS</span>
           <span class="doctor__placeholder-label">Foto em breve</span>
@@ -127,11 +150,13 @@
     </div>
   </div>
 </section>
-  <section id="servicos" class="servicos" aria-labelledby="servicos-title">
+
+  <!-- SECTION 3: Serviços -->
+  <section id="servicos" class="servicos" aria-labelledby="servicos-title" data-section="servicos">
   <div class="container">
     <div class="servicos__header" data-reveal>
-      <span class="label">O que fazemos</span>
-      <h2 id="servicos-title" class="h-serif servicos__title">Procedimentos com <em class="italic">propósito</em>.</h2>
+      <span class="label"><span class="section-num">02 —</span> O que fazemos</span>
+      <h2 id="servicos-title" class="h-serif servicos__title" data-split>Procedimentos com <em class="italic">propósito</em>.</h2>
       <p class="servicos__intro">Cada protocolo é pensado a partir da anatomia, das expressões e dos objetivos reais de quem está na cadeira.</p>
     </div>
     <div class="servicos__grid">
@@ -192,11 +217,13 @@
     </div>
   </div>
 </section>
-  <section class="filosofia" aria-labelledby="filosofia-title">
+
+  <!-- SECTION 4: Filosofia -->
+  <section class="filosofia" aria-labelledby="filosofia-title" data-section="filosofia">
   <div class="container">
     <div class="filosofia__header" data-reveal>
-      <span class="label">Como trabalhamos</span>
-      <h2 id="filosofia-title" class="h-serif filosofia__title">Três pilares que guiam cada <em class="italic">decisão clínica</em>.</h2>
+      <span class="label"><span class="section-num">03 —</span> Como trabalhamos</span>
+      <h2 id="filosofia-title" class="h-serif filosofia__title" data-split>Três pilares que guiam cada <em class="italic">decisão clínica</em>.</h2>
     </div>
     <div class="filosofia__grid">
       <div class="pilar" data-reveal>
@@ -217,14 +244,16 @@
     </div>
   </div>
 </section>
-  <section id="cursos" class="cursos" aria-labelledby="cursos-title">
+
+  <!-- SECTION 5: Cursos -->
+  <section id="cursos" class="cursos" aria-labelledby="cursos-title" data-section="cursos">
   <div class="cursos__grid">
     <div class="cursos__image" data-reveal>
       <img src="imagens/foto-curso-1.jpg" alt="Curso VIP de harmonização" loading="lazy" width="900" height="1100">
     </div>
     <div class="cursos__body" data-reveal>
-      <span class="label cursos__eyebrow">Para profissionais injetores</span>
-      <h2 id="cursos-title" class="h-serif cursos__title">Cursos <em class="italic">VIP</em>.<br>Formação de quem treina.</h2>
+      <span class="label cursos__eyebrow"><span class="section-num">04 —</span> Para profissionais injetores</span>
+      <h2 id="cursos-title" class="h-serif cursos__title" data-split>Cursos <em class="italic">VIP</em>.<br>Formação de quem treina.</h2>
       <p class="cursos__desc">Turmas reduzidas, mentoria individual e foco em técnicas autorais da Dra. Carol Segura. Os cursos <strong>RINO</strong> e <strong>VIP de Naturalidade</strong> são estruturados pra levar dentistas e médicas injetoras a outro patamar — com prática clínica real e acompanhamento pós-curso.</p>
       <ul class="cursos__bullets">
         <li>Turmas em Catanduva e Miami</li>
@@ -236,15 +265,17 @@
     </div>
   </div>
 </section>
-  <section id="clinica" class="clinica" aria-labelledby="clinica-title">
+
+  <!-- SECTION 6: Clínica -->
+  <section id="clinica" class="clinica" aria-labelledby="clinica-title" data-section="clinica">
   <div class="container">
     <div class="clinica__header" data-reveal>
-      <span class="label">O espaço</span>
-      <h2 id="clinica-title" class="h-serif clinica__title">Uma clínica <em class="italic">pensada</em> para acolher.</h2>
+      <span class="label"><span class="section-num">05 —</span> O espaço</span>
+      <h2 id="clinica-title" class="h-serif clinica__title" data-split>Uma clínica <em class="italic">pensada</em> para acolher.</h2>
       <p class="clinica__intro">Inaugurada recentemente em Catanduva, a Segura & Co nasceu pra unir experiência clínica e conforto. Cada detalhe — da iluminação à escolha dos materiais — foi pensado pra que você se sinta em casa.</p>
     </div>
     <div class="clinica__mosaic">
-      <div class="clinica__tile clinica__tile--tall" data-reveal><img src="imagens/escada-lustres.jpg" alt="Escada com lustres da clínica" loading="lazy" width="600" height="900"></div>
+      <div class="clinica__tile clinica__tile--tall" data-reveal><img src="imagens/escadas-lustre.jpg" alt="Escada com lustres da clínica" loading="lazy" width="600" height="900"></div>
       <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-1.jpg" alt="Recepção" loading="lazy" width="600" height="450"></div>
       <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-3.jpg" alt="Sala de atendimento" loading="lazy" width="600" height="450"></div>
       <div class="clinica__tile clinica__tile--wide" data-reveal><img src="imagens/foto-espaco-marca.jpg" alt="Espaço da marca" loading="lazy" width="900" height="500"></div>
@@ -253,11 +284,13 @@
     </div>
   </div>
 </section>
-  <section class="depo" aria-labelledby="depo-title">
+
+  <!-- SECTION 7: Depoimentos -->
+  <section class="depo" aria-labelledby="depo-title" data-section="depo">
   <div class="container">
     <div class="depo__header" data-reveal>
-      <span class="label">O que dizem</span>
-      <h2 id="depo-title" class="h-serif depo__title">Quem passou pela <em class="italic">cadeira</em>.</h2>
+      <span class="label"><span class="section-num">06 —</span> O que dizem</span>
+      <h2 id="depo-title" class="h-serif depo__title" data-split>Quem passou pela <em class="italic">cadeira</em>.</h2>
     </div>
     <div class="depo__carousel" data-reveal>
       <button class="depo__arrow depo__arrow--prev" aria-label="Depoimento anterior">←</button>
@@ -284,11 +317,13 @@
     </div>
   </div>
 </section>
-  <section class="insta" aria-labelledby="insta-title">
+
+  <!-- SECTION 8: Instagram -->
+  <section class="insta" aria-labelledby="insta-title" data-section="insta">
   <div class="container">
     <div class="insta__header" data-reveal>
-      <span class="label">@dra.carolsegura · 52,3k seguidores</span>
-      <h2 id="insta-title" class="h-serif insta__title">Siga o <em class="italic">bastidor</em>.</h2>
+      <span class="label"><span class="section-num">07 —</span> @dra.carolsegura · 52,3k seguidores</span>
+      <h2 id="insta-title" class="h-serif insta__title" data-split>Siga o <em class="italic">bastidor</em>.</h2>
     </div>
     <div class="insta__grid" data-reveal>
       <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
@@ -300,12 +335,14 @@
     </div>
   </div>
 </section>
-  <section id="contato" class="contato" aria-labelledby="contato-title">
+
+  <!-- SECTION 9: Contato -->
+  <section id="contato" class="contato" aria-labelledby="contato-title" data-section="contato">
   <div class="container">
     <div class="contato__grid">
       <div class="contato__info" data-reveal>
-        <span class="label">Agendamento</span>
-        <h2 id="contato-title" class="h-serif contato__title">Vamos <em class="italic">conversar</em>.</h2>
+        <span class="label"><span class="section-num">08 —</span> Agendamento</span>
+        <h2 id="contato-title" class="h-serif contato__title" data-split>Vamos <em class="italic">conversar</em>.</h2>
         <p class="contato__sub">Escolha o formato que preferir. Retornamos em até 24h úteis.</p>
         <dl class="contato__list">
           <div><dt>Clínica</dt><dd>Catanduva-SP · Brasil</dd></div>
@@ -351,13 +388,14 @@
     </div>
   </div>
 </section>
+
   <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__brand">
       <div class="footer__logo">
         <span class="footer__logo-script">Segura</span><span class="footer__logo-italic">&nbsp;&amp;&nbsp;Co.</span>
       </div>
-      <p class="footer__tag">Harmonizando com naturalidade, ciência & sensibilidade.</p>
+      <p class="footer__tag">Harmonizando com naturalidade, ciência &amp; sensibilidade.</p>
     </div>
     <nav class="footer__nav" aria-label="Rodapé">
       <a href="#sobre">Sobre</a>
@@ -372,9 +410,16 @@
       <a href="https://linktr.ee/carolsegura" target="_blank" rel="noopener">linktr.ee/carolsegura</a>
     </div>
   </div>
+  <!-- 4 — Footer marquee -->
+  <div class="footer-marquee" aria-hidden="true">
+    <div class="footer-marquee__inner">
+      <span class="footer-marquee__text">@SEGURAECOMPANY <span class="footer-marquee__sep">·</span> CROSP 109060 <span class="footer-marquee__sep">·</span> EST. 2013 <span class="footer-marquee__sep">·</span> CATANDUVA-SP <span class="footer-marquee__sep">·</span> MIAMI-FL <span class="footer-marquee__sep">·</span> DRA. CAROL SEGURA <span class="footer-marquee__sep">·</span> DRA. JULIANA SEGURA <span class="footer-marquee__sep">·</span> HARMONIZAÇÃO FACIAL <span class="footer-marquee__sep">·</span> NATURALIDADE <span class="footer-marquee__sep">·</span> CIÊNCIA <span class="footer-marquee__sep">·</span> SENSIBILIDADE <span class="footer-marquee__sep">·</span></span>
+      <span class="footer-marquee__text">@SEGURAECOMPANY <span class="footer-marquee__sep">·</span> CROSP 109060 <span class="footer-marquee__sep">·</span> EST. 2013 <span class="footer-marquee__sep">·</span> CATANDUVA-SP <span class="footer-marquee__sep">·</span> MIAMI-FL <span class="footer-marquee__sep">·</span> DRA. CAROL SEGURA <span class="footer-marquee__sep">·</span> DRA. JULIANA SEGURA <span class="footer-marquee__sep">·</span> HARMONIZAÇÃO FACIAL <span class="footer-marquee__sep">·</span> NATURALIDADE <span class="footer-marquee__sep">·</span> CIÊNCIA <span class="footer-marquee__sep">·</span> SENSIBILIDADE <span class="footer-marquee__sep">·</span></span>
+    </div>
+  </div>
   <div class="footer__meta container">
     <span>CROSP 109060 · Dra. Carol Segura</span>
-    <span>© 2026 Segura & Co · Todos os direitos reservados</span>
+    <span>© 2026 Segura &amp; Co · Todos os direitos reservados</span>
   </div>
 </footer>
   <script src="script.js" defer></script>

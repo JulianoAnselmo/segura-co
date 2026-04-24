@@ -8,9 +8,11 @@
   <meta property="og:description" content="Há 13 anos harmonizando rostos com naturalidade. Dra. Carol Segura e Dra. Juliana Segura.">
   <meta property="og:type" content="website">
   <title>Segura & Co — Harmonização Facial em Catanduva e Miami</title>
+  <!-- N — SVG favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231A1A1A'/%3E%3Ctext x='32' y='46' font-family='Parisienne%2Ccursive' font-size='38' fill='%23FAF6F1' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -47,6 +49,19 @@
 
   <!-- 2 — Custom cursor elements (desktop only, inserted via JS) -->
 
+  <!-- F — Rotating seal (desktop only) -->
+  <a class="rotating-seal" id="rotating-seal" href="#contato" aria-label="Ir para contato — Est. MMXIII" title="Segura & Co — Est. MMXIII">
+    <svg class="rotating-seal__svg" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <path id="circle-path" d="M 55,55 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"/>
+      </defs>
+      <text class="rotating-seal__text">
+        <textPath href="#circle-path" startOffset="0%">EST · MMXIII · CATANDUVA · MIAMI · </textPath>
+      </text>
+    </svg>
+    <span class="rotating-seal__center">S&amp;Co</span>
+  </a>
+
   <!-- 6 — Side progress indicator (built by JS) -->
   <nav class="progress-nav" id="progress-nav" aria-label="Navegação por seção" hidden></nav>
 
@@ -80,6 +95,8 @@
 
   <!-- SECTION 1: Hero -->
   <section id="home" class="hero" aria-labelledby="hero-title" data-section="home">
+  <!-- K — Hero spotlight (inserted by JS) -->
+  <div class="hero__spotlight" aria-hidden="true"></div>
   <div class="hero__grid">
     <div class="hero__text" data-reveal>
       <span class="label hero__eyebrow">Est. 2013 · Catanduva · Miami</span>
@@ -92,7 +109,7 @@
         Dra. Carol Segura · <span style="color:var(--caramel)">CROSP 109060</span>
       </p>
       <div class="hero__ctas">
-        <a href="#contato" class="btn btn-primary">Agendar consulta</a>
+        <a href="#contato" class="btn btn-primary btn--large">Agendar consulta</a>
         <a href="#cursos" class="btn btn-outline">Cursos VIP →</a>
       </div>
       <div class="hero__meta">
@@ -112,7 +129,6 @@
   <!-- 4 — Marquee strip between Hero and Sobre -->
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-strip__inner">
-      <!-- Two identical runs for seamless infinite loop -->
       <span class="marquee-strip__text">HARMONIZAÇÃO FACIAL <span class="marquee-strip__sep">✦</span> RINOMODELAÇÃO <span class="marquee-strip__sep">✦</span> PREENCHIMENTO LABIAL <span class="marquee-strip__sep">✦</span> BOTOX <span class="marquee-strip__sep">✦</span> BIOESTIMULADORES <span class="marquee-strip__sep">✦</span> OLHEIRAS <span class="marquee-strip__sep">✦</span> BICHECTOMIA <span class="marquee-strip__sep">✦</span> LAVIEEN <span class="marquee-strip__sep">✦</span> CATANDUVA <span class="marquee-strip__sep">✦</span> MIAMI <span class="marquee-strip__sep">✦</span></span>
       <span class="marquee-strip__text">HARMONIZAÇÃO FACIAL <span class="marquee-strip__sep">✦</span> RINOMODELAÇÃO <span class="marquee-strip__sep">✦</span> PREENCHIMENTO LABIAL <span class="marquee-strip__sep">✦</span> BOTOX <span class="marquee-strip__sep">✦</span> BIOESTIMULADORES <span class="marquee-strip__sep">✦</span> OLHEIRAS <span class="marquee-strip__sep">✦</span> BICHECTOMIA <span class="marquee-strip__sep">✦</span> LAVIEEN <span class="marquee-strip__sep">✦</span> CATANDUVA <span class="marquee-strip__sep">✦</span> MIAMI <span class="marquee-strip__sep">✦</span></span>
     </div>
@@ -120,6 +136,8 @@
 
   <!-- SECTION 2: Sobre -->
   <section id="sobre" class="sobre" aria-labelledby="sobre-title" data-section="sobre">
+  <!-- B — Sticky section label -->
+  <div class="section-sticky-label" aria-hidden="true"><span>01 — As fundadoras</span></div>
   <div class="container">
     <div class="sobre__header" data-reveal>
       <span class="label"><span class="section-num">01 —</span> As fundadoras</span>
@@ -151,78 +169,98 @@
   </div>
 </section>
 
-  <!-- SECTION 3: Serviços -->
+  <!-- SECTION 3: Serviços — C: Horizontal scroll -->
   <section id="servicos" class="servicos" aria-labelledby="servicos-title" data-section="servicos">
+  <!-- B — Sticky section label -->
+  <div class="section-sticky-label" aria-hidden="true"><span>02 — O que fazemos</span></div>
   <div class="container">
     <div class="servicos__header" data-reveal>
       <span class="label"><span class="section-num">02 —</span> O que fazemos</span>
       <h2 id="servicos-title" class="h-serif servicos__title" data-split>Procedimentos com <em class="italic">propósito</em>.</h2>
       <p class="servicos__intro">Cada protocolo é pensado a partir da anatomia, das expressões e dos objetivos reais de quem está na cadeira.</p>
     </div>
-    <div class="servicos__grid">
-      <article class="service" data-reveal>
+  </div>
+  <!-- C — Horizontal scroll track (outside container for full-bleed) -->
+  <div class="servicos__scroll-wrap">
+    <div class="servicos__track" id="servicos-track" role="list" tabindex="0" aria-label="Serviços — role para ver mais">
+      <article class="service" role="listitem" data-reveal>
+        <span class="service__num">01</span>
         <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14c1.5 1.5 6.5 1.5 8 0"/><circle cx="9" cy="10" r="0.5" fill="currentColor"/><circle cx="15" cy="10" r="0.5" fill="currentColor"/></svg>
-        <h3 class="h-serif service__title">Harmonização Facial</h3>
+        <h3 class="h-serif service__title">Harmonização<br>Facial</h3>
         <p class="service__desc">Protocolo completo pensado para equilibrar proporções, preservando expressão e identidade.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
-      <article class="service" data-reveal>
+      <article class="service" role="listitem" data-reveal>
+        <span class="service__num">02</span>
         <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M12 3v18M10 7c-1 1-1 3 0 5M14 7c1 1 1 3 0 5"/></svg>
-        <h3 class="h-serif service__title">Rinomodelação</h3>
+        <h3 class="h-serif service__title">Rino&shy;modelação</h3>
         <p class="service__desc">Refinamento do contorno nasal com ácido hialurônico, sem cirurgia, resultado em uma sessão.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
-      <article class="service" data-reveal>
+      <article class="service" role="listitem" data-reveal>
+        <span class="service__num">03</span>
         <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 12c3-3 13-3 16 0-3 3-13 3-16 0z"/><path d="M8 12c0-1 8-1 8 0"/></svg>
-        <h3 class="h-serif service__title">Preenchimento Labial</h3>
+        <h3 class="h-serif service__title">Preenchimento<br>Labial</h3>
         <p class="service__desc">Volume e definição respeitando o formato natural dos lábios — sempre discreto.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
-      <article class="service" data-reveal>
+      <article class="service" role="listitem" data-reveal>
+        <span class="service__num">04</span>
         <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 10h16M6 10v2a6 6 0 0012 0v-2"/><path d="M10 6l2-2 2 2"/></svg>
         <h3 class="h-serif service__title">Botox</h3>
         <p class="service__desc">Aplicação de toxina botulínica para suavizar expressões sem travar o movimento.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
-      <article class="service" data-reveal>
+      <article class="service" role="listitem" data-reveal>
+        <span class="service__num">05</span>
         <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7" stroke-dasharray="2 2"/></svg>
-        <h3 class="h-serif service__title">Bioestimuladores (PDRN)</h3>
+        <h3 class="h-serif service__title">Bioestimuladores<br>(PDRN)</h3>
         <p class="service__desc">Estímulo de colágeno e regeneração celular para pele mais firme e luminosa.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
-      <article class="service" data-reveal>
+      <article class="service" role="listitem" data-reveal>
+        <span class="service__num">06</span>
         <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 12c2-4 6-4 8 0 2 4 6 4 8 0"/><circle cx="8" cy="11" r="1"/><circle cx="16" cy="11" r="1"/></svg>
-        <h3 class="h-serif service__title">Tratamento de Olheiras</h3>
+        <h3 class="h-serif service__title">Tratamento de<br>Olheiras</h3>
         <p class="service__desc">Protocolo específico para área dos olhos, unindo preenchimento e bioestímulo quando indicado.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
-      <article class="service" data-reveal>
+      <article class="service" role="listitem" data-reveal>
+        <span class="service__num">07</span>
         <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M12 4c-5 0-8 4-8 8s3 8 8 8 8-4 8-8-3-8-8-8z"/><path d="M9 12a3 3 0 006 0"/></svg>
         <h3 class="h-serif service__title">Bichectomia</h3>
-        <p class="service__desc">Redução das bolsas de Bichat para afinar o terço inferior do rosto, feita com técnica minimamente invasiva.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <p class="service__desc">Redução das bolsas de Bichat para afinar o terço inferior do rosto, técnica minimamente invasiva.</p>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
-      <article class="service" data-reveal>
+      <article class="service" role="listitem" data-reveal>
+        <span class="service__num">08</span>
         <svg class="service__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M5 14c2 4 12 4 14 0"/><path d="M7 11c0-3 10-3 10 0"/></svg>
         <h3 class="h-serif service__title">Lipo de Papada</h3>
         <p class="service__desc">Definição do contorno mandibular com redução de gordura submentoniana.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
-      <article class="service service--feature" data-reveal>
+      <article class="service service--feature" role="listitem" data-reveal>
+        <span class="service__num">09</span>
         <div class="service__photo"><img src="imagens/maquina-lavieen.jpg" alt="Tratamento LAVIEEN" loading="lazy" width="600" height="400"></div>
         <h3 class="h-serif service__title">LAVIEEN</h3>
         <p class="service__desc">Tecnologia coreana de rejuvenescimento: melhora textura, poros e luminosidade sem downtime.</p>
-        <a href="#contato" class="service__link">Saiba mais →</a>
+        <a href="#contato" class="service__link">Saiba mais <span class="service__arrow">→</span></a>
       </article>
+    </div>
+    <!-- C — Horizontal progress bar -->
+    <div class="servicos__progress-wrap" aria-hidden="true">
+      <div class="servicos__progress-bar" id="servicos-progress"></div>
     </div>
   </div>
 </section>
 
-  <!-- SECTION 4: Filosofia -->
-  <section class="filosofia" aria-labelledby="filosofia-title" data-section="filosofia">
+  <!-- SECTION 4: Filosofia — H: Dark section -->
+  <section class="filosofia filosofia--dark" aria-labelledby="filosofia-title" data-section="filosofia">
+  <!-- B — Sticky section label -->
+  <div class="section-sticky-label section-sticky-label--light" aria-hidden="true"><span>03 — Como trabalhamos</span></div>
   <div class="container">
     <div class="filosofia__header" data-reveal>
-      <span class="label"><span class="section-num">03 —</span> Como trabalhamos</span>
+      <span class="label filosofia__label"><span class="section-num">03 —</span> Como trabalhamos</span>
       <h2 id="filosofia-title" class="h-serif filosofia__title" data-split>Três pilares que guiam cada <em class="italic">decisão clínica</em>.</h2>
     </div>
     <div class="filosofia__grid">
@@ -245,8 +283,10 @@
   </div>
 </section>
 
-  <!-- SECTION 5: Cursos -->
+  <!-- SECTION 5: Cursos — already dark -->
   <section id="cursos" class="cursos" aria-labelledby="cursos-title" data-section="cursos">
+  <!-- B — Sticky section label -->
+  <div class="section-sticky-label section-sticky-label--light" aria-hidden="true"><span>04 — Para profissionais</span></div>
   <div class="cursos__grid">
     <div class="cursos__image" data-reveal>
       <img src="imagens/foto-curso-1.jpg" alt="Curso VIP de harmonização" loading="lazy" width="900" height="1100">
@@ -261,13 +301,27 @@
         <li>Técnica de rinomodelação autoral</li>
         <li>Protocolo de naturalidade proprietário</li>
       </ul>
-      <a href="#contato" class="btn cursos__cta">Entrar na lista de espera →</a>
+      <a href="#contato" class="btn cursos__cta btn--large">Entrar na lista de espera →</a>
     </div>
   </div>
 </section>
 
+  <!-- E — Pull-quote section between Cursos and Clinica -->
+  <section class="pullquote" aria-label="Citação" data-section="pullquote">
+    <div class="pullquote__hairline pullquote__hairline--top" aria-hidden="true"></div>
+    <div class="pullquote__inner">
+      <blockquote class="pullquote__text">
+        "Naturalidade é não parecer que fez —<br class="pullquote__br"> e ainda assim, parecer melhor."
+      </blockquote>
+      <cite class="pullquote__caption">— Dra. Carol Segura</cite>
+    </div>
+    <div class="pullquote__hairline pullquote__hairline--bottom" aria-hidden="true"></div>
+  </section>
+
   <!-- SECTION 6: Clínica -->
   <section id="clinica" class="clinica" aria-labelledby="clinica-title" data-section="clinica">
+  <!-- B — Sticky section label -->
+  <div class="section-sticky-label" aria-hidden="true"><span>05 — O espaço</span></div>
   <div class="container">
     <div class="clinica__header" data-reveal>
       <span class="label"><span class="section-num">05 —</span> O espaço</span>
@@ -275,11 +329,12 @@
       <p class="clinica__intro">Inaugurada recentemente em Catanduva, a Segura & Co nasceu pra unir experiência clínica e conforto. Cada detalhe — da iluminação à escolha dos materiais — foi pensado pra que você se sinta em casa.</p>
     </div>
     <div class="clinica__mosaic">
+      <!-- J — mixed aspect ratios: tall, standard, 16/9 wide -->
       <div class="clinica__tile clinica__tile--tall" data-reveal><img src="imagens/escadas-lustre.jpg" alt="Escada com lustres da clínica" loading="lazy" width="600" height="900"></div>
       <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-1.jpg" alt="Recepção" loading="lazy" width="600" height="450"></div>
       <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-3.jpg" alt="Sala de atendimento" loading="lazy" width="600" height="450"></div>
-      <div class="clinica__tile clinica__tile--wide" data-reveal><img src="imagens/foto-espaco-marca.jpg" alt="Espaço da marca" loading="lazy" width="900" height="500"></div>
-      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-6.jpg" alt="Detalhe do espaço" loading="lazy" width="600" height="450"></div>
+      <div class="clinica__tile clinica__tile--wide clinica__tile--cinema" data-reveal><img src="imagens/foto-espaco-marca.jpg" alt="Espaço da marca" loading="lazy" width="900" height="500"></div>
+      <div class="clinica__tile clinica__tile--portrait" data-reveal><img src="imagens/foto-clinica-interna-6.jpg" alt="Detalhe do espaço" loading="lazy" width="600" height="450"></div>
       <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-8.jpg" alt="Ambiente interno" loading="lazy" width="600" height="450"></div>
     </div>
   </div>
@@ -287,6 +342,8 @@
 
   <!-- SECTION 7: Depoimentos -->
   <section class="depo" aria-labelledby="depo-title" data-section="depo">
+  <!-- B — Sticky section label -->
+  <div class="section-sticky-label" aria-hidden="true"><span>06 — O que dizem</span></div>
   <div class="container">
     <div class="depo__header" data-reveal>
       <span class="label"><span class="section-num">06 —</span> O que dizem</span>
@@ -353,6 +410,8 @@
         </dl>
       </div>
       <form class="contato__form" id="contato-form" data-reveal novalidate>
+        <!-- L — VAGAS LIMITADAS micro-label -->
+        <p class="contato__vagas">Vagas Limitadas</p>
         <label class="field">
           <span>Nome</span>
           <input type="text" name="nome" required autocomplete="name">
@@ -382,7 +441,8 @@
           <span>Mensagem</span>
           <textarea name="mensagem" rows="4"></textarea>
         </label>
-        <button type="submit" class="btn btn-primary contato__submit">Enviar</button>
+        <!-- L — Submit as btn--large -->
+        <button type="submit" class="btn btn-primary btn--large contato__submit">Enviar</button>
         <p class="contato__status" id="contato-status" aria-live="polite"></p>
       </form>
     </div>
@@ -390,6 +450,8 @@
 </section>
 
   <footer class="footer">
+  <!-- M — Background watermark -->
+  <div class="footer__watermark" aria-hidden="true">Segura &amp; Co.</div>
   <div class="container footer__inner">
     <div class="footer__brand">
       <div class="footer__logo">

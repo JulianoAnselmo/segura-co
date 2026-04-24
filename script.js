@@ -1,4 +1,4 @@
-// Segura & Co — interações do site (v2 — premium edition)
+// Segura & Co — interações do site (v3 — luxury edition)
 
 // ─── Motion / pointer preference detection ───────────────────────────────────
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -10,11 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!prefersReducedMotion) {
     initPreloader();
   } else {
-    // Remove preloader immediately so page is visible
     const pl = document.getElementById('preloader');
     if (pl) pl.remove();
     document.body.classList.remove('is-loading');
-    // Run split-text immediately under reduced-motion (words visible, no anim)
     initSplitText(true);
     initScrollObserver();
   }
@@ -33,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMagneticCTAs();
   }
 
-  // Enhancement 6: Side progress indicator (desktop ≥1100px handled via CSS)
+  // Enhancement 6: Side progress indicator
   initProgressNav();
 
   // Enhancement 7: Parallax on images
@@ -41,10 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
   }
 
-  // Enhancement 8: 3D tilt on service cards (no reduced-motion, no coarse)
+  // Enhancement 8: 3D tilt on service cards
   if (!prefersReducedMotion && !coarsePointer) {
     initTilt();
   }
+
+  // C — Horizontal scroll for Serviços
+  initServicosScroll();
+
+  // K — Hero mouse-follow spotlight
+  if (!prefersReducedMotion && !coarsePointer) {
+    initHeroSpotlight();
+  }
+
+  // F — Rotating seal hide-near-footer logic
+  initRotatingSeal();
 });
 
 // ─── 1. PRELOADER ─────────────────────────────────────────────────────────────
@@ -54,17 +63,14 @@ function initPreloader() {
 
   document.body.classList.add('is-loading');
 
-  // After ~1.4s (fade-in 0.7s delay 0.2s + line 0.5s delay 0.9s = 1.4s total) → slide up
   const slideDelay = 1500;
   setTimeout(() => {
     preloader.classList.add('is-leaving');
     preloader.addEventListener('animationend', () => {
       preloader.remove();
       document.body.classList.remove('is-loading');
-      // Run split-text + scroll observer after preloader leaves
       initSplitText(false);
       initScrollObserver();
-      // Run hero split-text words immediately
       revealHeroWords();
     }, { once: true });
   }, slideDelay);
@@ -78,7 +84,6 @@ function initSplitText(immediate) {
   });
 
   if (immediate) {
-    // Reduced-motion: reveal all words immediately without transition
     document.querySelectorAll('.word').forEach(w => {
       w.style.opacity = '1';
       w.style.transform = 'none';
@@ -86,7 +91,6 @@ function initSplitText(immediate) {
     return;
   }
 
-  // Set up IntersectionObserver for section headings (not hero)
   const splitIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -98,7 +102,6 @@ function initSplitText(immediate) {
   }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
 
   headings.forEach(heading => {
-    // Hero h1 is triggered separately after preloader
     if (heading.id !== 'hero-title') {
       splitIO.observe(heading);
     }
@@ -109,14 +112,11 @@ function revealHeroWords() {
   const heroTitle = document.getElementById('hero-title');
   if (!heroTitle) return;
   const words = heroTitle.querySelectorAll('.word');
-  staggerWords(words, 100); // slight extra delay so page settles
+  staggerWords(words, 100);
 }
 
 function splitHeadingIntoWords(el) {
-  // Walk child nodes, splitting text nodes into word spans
-  // Preserve existing <em class="italic"> and <br> elements
   const originalHTML = el.innerHTML;
-  // Parse via temporary div preserving structure
   const tmp = document.createElement('div');
   tmp.innerHTML = originalHTML;
   el.innerHTML = '';
@@ -126,12 +126,10 @@ function splitHeadingIntoWords(el) {
 function processNode(source, target) {
   source.childNodes.forEach(node => {
     if (node.nodeType === Node.TEXT_NODE) {
-      // Split text by spaces, wrapping each word in .word span
       const text = node.textContent;
       const parts = text.split(/(\s+)/);
       parts.forEach(part => {
         if (/^\s+$/.test(part)) {
-          // Whitespace node
           target.appendChild(document.createTextNode(part));
         } else if (part.length > 0) {
           const span = document.createElement('span');
@@ -144,7 +142,6 @@ function processNode(source, target) {
       if (node.tagName === 'BR') {
         target.appendChild(document.createElement('br'));
       } else if (node.tagName === 'EM') {
-        // Wrap EM content words, but keep the EM element
         const emClone = document.createElement('em');
         emClone.className = node.className;
         if (node.style.cssText) emClone.style.cssText = node.style.cssText;
@@ -169,7 +166,7 @@ function staggerWords(words, baseDelay) {
   });
 }
 
-// ─── SCROLL REVEAL (existing, enhanced) ───────────────────────────────────────
+// ─── SCROLL REVEAL ────────────────────────────────────────────────────────────
 function initScrollObserver() {
   if (prefersReducedMotion) {
     document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
@@ -204,57 +201,40 @@ function initCustomCursor() {
   let mouseY = window.innerHeight / 2;
   let ringX = mouseX;
   let ringY = mouseY;
-  let rafId;
 
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
   });
 
-  // Hover detection — expand ring on interactive elements
-  const hoverTargets = 'a, button, .service, .insta__tile';
+  const hoverTargets = 'a, button, .service, .insta__tile, .clinica__tile';
   document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(hoverTargets)) {
-      ring.classList.add('is-hover');
-    }
+    if (e.target.closest(hoverTargets)) ring.classList.add('is-hover');
   });
   document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(hoverTargets)) {
-      ring.classList.remove('is-hover');
-    }
+    if (e.target.closest(hoverTargets)) ring.classList.remove('is-hover');
   });
 
   function animateCursor() {
-    // Dot: follows exactly
     dot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
-
-    // Ring: lerp with lag
     const lerp = 0.12;
     ringX += (mouseX - ringX) * lerp;
     ringY += (mouseY - ringY) * lerp;
     ring.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
-
-    rafId = requestAnimationFrame(animateCursor);
+    requestAnimationFrame(animateCursor);
   }
 
   animateCursor();
 
-  // Hide cursor when leaving window
-  document.addEventListener('mouseleave', () => {
-    dot.style.opacity = '0';
-    ring.style.opacity = '0';
-  });
-  document.addEventListener('mouseenter', () => {
-    dot.style.opacity = '1';
-    ring.style.opacity = '1';
-  });
+  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
 }
 
 // ─── 5. MAGNETIC CTAs ─────────────────────────────────────────────────────────
 function initMagneticCTAs() {
   const buttons = document.querySelectorAll('.btn');
-  const RADIUS = 60; // px — magnetic field radius
-  const STRENGTH = 0.35; // pull factor
+  const RADIUS = 60;
+  const STRENGTH = 0.35;
 
   buttons.forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
@@ -265,14 +245,10 @@ function initMagneticCTAs() {
       const dy = e.clientY - cy;
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < RADIUS) {
-        const pull = Math.max(6, Math.min(10, (RADIUS - dist) / RADIUS * 10));
         btn.style.transform = `translate(${dx * STRENGTH}px, ${dy * STRENGTH}px)`;
       }
     });
-
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = '';
-    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
   });
 }
 
@@ -290,13 +266,13 @@ function initProgressNav() {
     servicos: 'Serviços',
     filosofia: 'Filosofia',
     cursos: 'Cursos',
+    pullquote: 'Citação',
     clinica: 'Clínica',
     depo: 'Depoimentos',
     insta: 'Instagram',
     contato: 'Contato',
   };
 
-  // Show nav (CSS hides below 1100px)
   nav.removeAttribute('hidden');
 
   const dots = sections.map((section, i) => {
@@ -311,7 +287,6 @@ function initProgressNav() {
     return btn;
   });
 
-  // IntersectionObserver to track active section
   let activeIndex = 0;
   const progressIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -327,7 +302,6 @@ function initProgressNav() {
   }, { threshold: 0.4 });
 
   sections.forEach(s => progressIO.observe(s));
-  // Set first as active initially
   if (dots[0]) dots[0].classList.add('is-active');
 }
 
@@ -339,29 +313,21 @@ function initParallax() {
 
   if (parallaxImgs.length === 0) return;
 
-  // Set overflow hidden on parent wrappers (already set in CSS)
-  parallaxImgs.forEach(img => {
-    img.style.willChange = 'transform';
-  });
+  parallaxImgs.forEach(img => { img.style.willChange = 'transform'; });
 
   let ticking = false;
 
   function updateParallax() {
-    const scrollY = window.scrollY;
     const vh = window.innerHeight;
-
     parallaxImgs.forEach(img => {
       const rect = img.parentElement.getBoundingClientRect();
       const centerY = rect.top + rect.height / 2;
       const distFromCenter = centerY - vh / 2;
-      // Normalize: -1 (above) to 1 (below)
       const normalized = distFromCenter / (vh * 0.8);
       const clamped = Math.max(-1, Math.min(1, normalized));
-      const offset = clamped * 24; // max ±24px
-      img.style.setProperty('--p', `${offset}px`);
+      const offset = clamped * 24;
       img.style.transform = `translateY(${offset}px) scale(1.06)`;
     });
-
     ticking = false;
   }
 
@@ -372,7 +338,6 @@ function initParallax() {
     }
   }, { passive: true });
 
-  // Initial run
   updateParallax();
 }
 
@@ -392,14 +357,132 @@ function initTilt() {
       const rotY = dx * MAX_DEG;
       card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
     });
-
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
     });
   });
 }
 
-// ─── MOBILE MENU (unchanged) ──────────────────────────────────────────────────
+// ─── C. HORIZONTAL SCROLL FOR SERVIÇOS ────────────────────────────────────────
+function initServicosScroll() {
+  const track = document.getElementById('servicos-track');
+  const progressBar = document.getElementById('servicos-progress');
+  if (!track) return;
+
+  // Update progress bar on scroll
+  function updateProgress() {
+    const max = track.scrollWidth - track.clientWidth;
+    const pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+    if (progressBar) progressBar.style.width = pct + '%';
+  }
+
+  track.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // Keyboard arrows to scroll
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      track.scrollBy({ left: 380, behavior: 'smooth' });
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      track.scrollBy({ left: -380, behavior: 'smooth' });
+    }
+  });
+
+  // Drag-to-scroll on desktop (no coarse pointer)
+  if (!coarsePointer) {
+    let isDragging = false;
+    let startX = 0;
+    let scrollStart = 0;
+
+    track.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      scrollStart = track.scrollLeft;
+      track.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      track.scrollLeft = scrollStart - dx;
+    });
+
+    const stopDrag = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.userSelect = '';
+    };
+
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('mouseleave', stopDrag);
+
+    // Prevent click-through on drag
+    track.addEventListener('click', (e) => {
+      if (Math.abs(track.scrollLeft - scrollStart) > 4) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, { capture: true });
+  }
+}
+
+// ─── K. HERO MOUSE-FOLLOW SPOTLIGHT ───────────────────────────────────────────
+function initHeroSpotlight() {
+  const hero = document.querySelector('.hero');
+  const spotlight = document.querySelector('.hero__spotlight');
+  if (!hero || !spotlight) return;
+
+  let mx = 50, my = 50;
+  let lerpX = 50, lerpY = 50;
+  let rafId;
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mx = ((e.clientX - rect.left) / rect.width) * 100;
+    my = ((e.clientY - rect.top) / rect.height) * 100;
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    mx = 50; my = 50;
+  });
+
+  function animateSpotlight() {
+    const speed = 0.05;
+    lerpX += (mx - lerpX) * speed;
+    lerpY += (my - lerpY) * speed;
+    spotlight.style.setProperty('--mx', lerpX.toFixed(2) + '%');
+    spotlight.style.setProperty('--my', lerpY.toFixed(2) + '%');
+    // Rebuild the gradient with the new values since CSS vars in gradient need repaint
+    spotlight.style.background = `radial-gradient(circle 500px at ${lerpX.toFixed(2)}% ${lerpY.toFixed(2)}%, rgba(201,169,110,0.06) 0%, transparent 70%)`;
+    rafId = requestAnimationFrame(animateSpotlight);
+  }
+
+  animateSpotlight();
+}
+
+// ─── F. ROTATING SEAL — HIDE NEAR FOOTER ──────────────────────────────────────
+function initRotatingSeal() {
+  const seal = document.getElementById('rotating-seal');
+  const footer = document.querySelector('.footer');
+  if (!seal || !footer) return;
+
+  function checkSealVisibility() {
+    const footerRect = footer.getBoundingClientRect();
+    const nearFooter = footerRect.top < window.innerHeight + 400;
+    if (nearFooter) {
+      seal.classList.add('is-hidden');
+    } else {
+      seal.classList.remove('is-hidden');
+    }
+  }
+
+  window.addEventListener('scroll', checkSealVisibility, { passive: true });
+  checkSealVisibility();
+}
+
+// ─── MOBILE MENU ──────────────────────────────────────────────────────────────
 function initMobileMenu() {
   const toggle = document.querySelector('.nav__toggle');
   const menu = document.getElementById('mobile-menu');
@@ -417,7 +500,7 @@ function initMobileMenu() {
   }));
 }
 
-// ─── CAROUSEL (unchanged) ─────────────────────────────────────────────────────
+// ─── CAROUSEL ─────────────────────────────────────────────────────────────────
 function initCarousel() {
   const track = document.getElementById('depo-track');
   if (!track) return;
@@ -452,7 +535,7 @@ function initCarousel() {
   carousel.addEventListener('mouseleave', () => { timer = setInterval(() => go(idx + 1), 7000); });
 }
 
-// ─── FORM (unchanged) ─────────────────────────────────────────────────────────
+// ─── FORM ─────────────────────────────────────────────────────────────────────
 function initForm() {
   const form = document.getElementById('contato-form');
   if (!form) return;

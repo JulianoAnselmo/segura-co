@@ -118,11 +118,11 @@ body::after {
   font-family: var(--font-serif);
   font-weight: 400;
   color: var(--black);
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -1.5px;
   font-feature-settings: "kern", "liga", "dlig", "ss01";
   text-rendering: optimizeLegibility;
-  padding-bottom: 0.08em;
+  padding-bottom: 0.18em;
 }
 .italic { font-style: italic; }
 
@@ -338,6 +338,9 @@ body::after {
   overflow: visible;
 }
 [data-mask-reveal] .word {
+  display: inline-block;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
   clip-path: inset(-5% 0 100% 0);
   opacity: 1;
   transform: none;
@@ -345,7 +348,7 @@ body::after {
   padding-bottom: 0.15em;
   margin-bottom: -0.15em;
 }
-[data-mask-reveal] .word.is-visible { clip-path: inset(-10% -5% -15% -5%); }
+[data-mask-reveal] .word.is-visible { clip-path: inset(-15% -10% -25% -10%); }
 
 /* === Hero === */
 .hero {

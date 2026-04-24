@@ -104,3 +104,46 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
   .nav__links { display: none; }
   .nav__toggle { display: flex; }
 }
+
+/* === Reveal animation === */
+[data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+[data-reveal].revealed { opacity: 1; transform: none; }
+
+/* === Hero === */
+.hero { padding-top: 72px; /* espaço para navbar */ min-height: 100vh; background: var(--cream); }
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  min-height: calc(100vh - 72px);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.hero__text {
+  padding: var(--space-xl) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  position: relative;
+}
+.hero__text::before, .hero__text::after {
+  content: ""; position: absolute; background: var(--champagne);
+}
+.hero__text::before { top: 32px; left: 32px; width: 48px; height: 1px; }
+.hero__text::after { top: 32px; left: 32px; width: 1px; height: 48px; }
+.hero__eyebrow { display: block; }
+.hero__title { font-size: clamp(40px, 5.5vw, 68px); }
+.hero__sub { font-size: 17px; font-weight: 300; color: var(--brown); margin-top: var(--space-md); max-width: 440px; line-height: 1.55; }
+.hero__ctas { display: flex; gap: var(--space-sm); margin-top: var(--space-md); flex-wrap: wrap; }
+.hero__meta { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+.hero__image { position: relative; overflow: hidden; }
+.hero__image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.hero__signature { position: absolute; bottom: 24px; right: 28px; font-family: var(--font-script); font-size: 28px; color: var(--cream); text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
+.hero__counter { position: absolute; top: 24px; right: 28px; font-size: 10px; letter-spacing: 3px; color: var(--cream); opacity: 0.85; }
+
+@media (max-width: 900px) {
+  .hero__grid { grid-template-columns: 1fr; min-height: auto; }
+  .hero__text { padding: var(--space-xl) var(--gutter-mobile) var(--space-lg); }
+  .hero__image { height: 70vh; min-height: 480px; }
+  .hero__title { font-size: clamp(34px, 9vw, 56px); }
+}

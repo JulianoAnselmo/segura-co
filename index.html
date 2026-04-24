@@ -39,6 +39,32 @@
   </script>
 </head>
 <body>
+  <header class="nav" role="banner">
+  <div class="container nav__inner">
+    <a href="#home" class="nav__logo" aria-label="Segura & Co — início">
+      <span class="nav__logo-script">Segura</span><span class="nav__logo-italic">&nbsp;&amp;&nbsp;Co.</span>
+    </a>
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#clinica">Clínica</a>
+      <a href="#contato">Contato</a>
+      <a href="#contato" class="btn btn-primary nav__cta">Agendar</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="nav__mobile" hidden>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#cursos">Cursos</a>
+    <a href="#clinica">Clínica</a>
+    <a href="#contato">Contato</a>
+    <a href="#contato" class="btn btn-primary">Agendar consulta</a>
+  </div>
+</header>
   <!-- Seções inseridas nas próximas tasks -->
   <script src="script.js" defer></script>
 </body>

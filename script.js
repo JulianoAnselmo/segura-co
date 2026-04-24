@@ -23,6 +23,21 @@ function initScrollObserver() {
   document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 }
 
-function initMobileMenu() { /* preenchido na Task 2 */ }
+function initMobileMenu() {
+  const toggle = document.querySelector('.nav__toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Abrir menu' : 'Fechar menu');
+    menu.hidden = open;
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menu');
+    menu.hidden = true;
+  }));
+}
 function initCarousel() { /* preenchido na Task 9 */ }
 function initForm() { /* preenchido na Task 11 */ }

@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initProgressNav();
+  initNavScrollState();
 
   if (!prefersReducedMotion) {
     initParallax();
@@ -245,6 +246,23 @@ function initProgressNav() {
 
   sections.forEach(s => progressIO.observe(s));
   if (dots[0]) dots[0].classList.add('is-active');
+}
+
+// ─── NAV SCROLL STATE ─────────────────────────────────────────────────────────
+function initNavScrollState() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const THRESHOLD = 80;
+  let ticking = false;
+  function update() {
+    if (window.scrollY > THRESHOLD) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
 }
 
 // ─── PARALLAX (halved factor) ─────────────────────────────────────────────────

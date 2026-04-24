@@ -29,7 +29,16 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.4s;
+  --space-2xs: 4px;
+  --space-2xl: 128px;
+  --radius: 2px;
+  --section-y: clamp(72px, 10vw, 128px);
+  --hairline: 1px solid rgba(201, 169, 110, 0.35);
+  --hairline-strong: 1px solid rgba(201, 169, 110, 0.55);
 }
+
+::selection { background: var(--champagne); color: var(--cream); }
+::-moz-selection { background: var(--champagne); color: var(--cream); }
 
 /* === Reset === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -109,9 +118,10 @@ body::after {
   font-family: var(--font-serif);
   font-weight: 400;
   color: var(--black);
-  line-height: 0.92;
-  letter-spacing: -3px;
-  font-feature-settings: "ss01", "liga";
+  line-height: 0.95;
+  letter-spacing: -1.5px;
+  font-feature-settings: "kern", "liga", "dlig", "ss01";
+  text-rendering: optimizeLegibility;
 }
 .italic { font-style: italic; }
 
@@ -1030,3 +1040,227 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   opacity: 1;
   transform: none;
 }
+
+/* ============================================================
+   POLISH PASS — ajustes finais alto luxo
+   Tipografia, hairlines, hover states, FAQ, footer, forms
+   ============================================================ */
+
+/* Reveal mais suave — 24px → 12px */
+[data-reveal] { transform: translateY(12px); transition: opacity 0.9s var(--ease-lux), transform 0.9s var(--ease-lux); }
+.word { transform: translateY(28px); transition: opacity 0.7s var(--ease-lux), transform 0.7s var(--ease-lux); }
+
+/* Focus rings refinados */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--caramel);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Headings grandes — letter-spacing mais justo em escalas maiores */
+.hero__title { letter-spacing: -2px; line-height: 0.95; font-feature-settings: "kern", "liga", "dlig"; }
+@media (min-width: 1200px) {
+  .hero__title { letter-spacing: -3px; }
+  .clinica__title, .depo__title, .faq__title, .insta__title, .contato__title { letter-spacing: -3px; }
+}
+.sobre__title, .cursos__title, .servicos__title, .clinica__title, .depo__title, .faq__title, .insta__title, .contato__title, .proc-block__title, .doctor__name, .sec-card__title {
+  font-feature-settings: "kern", "liga", "dlig", "ss01";
+}
+
+/* Subheads line-height refinado */
+.hero__sub, .clinica__intro, .contato__sub, .cursos__desc { line-height: 1.7; }
+.proc-block__copy, .doctor__bio, .faq__a p { line-height: 1.75; }
+
+/* Dropcap no Sobre / Cursos */
+.doctor:first-of-type .doctor__bio::first-letter,
+.cursos__desc::first-letter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.85;
+  padding: 6px 10px 0 0;
+  color: var(--caramel);
+  font-feature-settings: "dlig", "liga";
+}
+
+/* Hairline champagne decorativo entre seções */
+.sobre + .servicos::before,
+.servicos + .cursos::before,
+.cursos + .clinica::before,
+.clinica + .depo::before,
+.depo + .insta::before,
+.insta + .faq::before,
+.faq + .contato::before { content: none; }
+
+/* Nav scroll state */
+.nav { transition: background 0.4s var(--ease-lux), border-color 0.4s var(--ease-lux), box-shadow 0.4s var(--ease-lux); border-bottom: 1px solid transparent; }
+.nav.is-scrolled { background: rgba(250, 246, 241, 0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: rgba(201, 169, 110, 0.28); box-shadow: 0 1px 0 rgba(201, 169, 110, 0.08); }
+
+/* Buttons timing consistente */
+.btn { transition: transform 0.4s var(--ease-lux), background 0.4s var(--ease-lux), color 0.4s var(--ease-lux), padding 0.4s var(--ease-lux), border-color 0.4s var(--ease-lux), box-shadow 0.4s var(--ease-lux); border-radius: 2px; }
+.btn-primary { box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+.btn-primary:hover { box-shadow: 0 10px 28px rgba(184, 115, 51, 0.22); }
+
+/* Arrow-link mais refinado */
+.arrow-link { padding-bottom: 4px; }
+.arrow-link::after { height: 1px; background: var(--champagne); bottom: -4px; transition: transform 0.4s var(--ease-lux); }
+
+/* Cards hover consistente: lift + shadow */
+.sec-card, .course-card, .faq__item { transition: border-color 0.4s var(--ease-lux), transform 0.4s var(--ease-lux), box-shadow 0.4s var(--ease-lux), background 0.4s var(--ease-lux); border-radius: 2px; }
+.sec-card { box-shadow: 0 1px 0 rgba(26, 21, 18, 0.02); }
+.sec-card:hover { border-color: var(--caramel); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(26, 21, 18, 0.08); }
+.course-card { box-shadow: 0 2px 0 rgba(201, 169, 110, 0.05); }
+.course-card:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(201, 169, 110, 0.18); border-color: var(--caramel); }
+
+/* Frames com hairline champagne consistente */
+.sobre__figure { border: 1px solid rgba(201, 169, 110, 0.35); border-radius: 2px; }
+.proc-block__image { border-radius: 2px; }
+.clinica__tile { border-radius: 2px; }
+.cursos__img-frame { border-radius: 2px; }
+.cursos__img-frame { border: 1px solid rgba(201, 169, 110, 0.25); }
+.hero__image { border-radius: 2px; }
+
+/* Forms — glow champagne subtle, labels small-caps */
+.field span { font-variant: small-caps; color: var(--champagne); letter-spacing: 3px; font-weight: 500; font-size: 10px; }
+.field input, .field select, .field textarea {
+  transition: border-color 0.4s var(--ease-lux), box-shadow 0.4s var(--ease-lux), border-bottom-width 0.4s var(--ease-lux);
+}
+.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(184, 115, 51, 0.4); }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--caramel);
+  box-shadow: 0 1px 0 0 rgba(201, 169, 110, 0.3);
+}
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23B87333' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  background-size: 12px 8px;
+  padding-right: 24px;
+  cursor: pointer;
+}
+.contato__form { border-radius: 2px; }
+.contato__submit { transition: transform 0.4s var(--ease-lux), background 0.4s var(--ease-lux), padding 0.4s var(--ease-lux), box-shadow 0.4s var(--ease-lux); }
+
+/* FAQ refinado */
+.faq__item { border-top: 1px solid rgba(201, 169, 110, 0.45); border-bottom: none; padding: 0; transition: background 0.4s var(--ease-lux); }
+.faq__item:last-child { border-bottom: 1px solid rgba(201, 169, 110, 0.45); }
+.faq__item:first-child { border-top: 1px solid rgba(201, 169, 110, 0.45); }
+.faq__q { padding: 28px 4px; }
+.faq__a { padding: 0 4px 28px; }
+.faq__icon { transition: transform 0.4s var(--ease-lux), color 0.4s var(--ease-lux); }
+.faq__item[open] { background: rgba(217, 184, 164, 0.08); }
+.faq__item[open] .faq__q { color: var(--caramel); }
+
+/* Depoimentos — aspas decorativas e dots pill */
+.depo__track { position: relative; }
+.depo__track::before, .depo__track::after {
+  font-family: var(--font-serif);
+  color: var(--champagne);
+  font-size: clamp(72px, 10vw, 120px);
+  line-height: 1;
+  position: absolute;
+  opacity: 0.35;
+  pointer-events: none;
+  font-style: italic;
+  z-index: 0;
+}
+.depo__track::before { content: "\201C"; top: -8px; left: 12px; }
+.depo__track::after { content: "\201D"; bottom: 24px; right: 12px; }
+.depo__slide { transition: opacity 0.8s var(--ease-lux); }
+.depo__quote { position: relative; z-index: 1; }
+.depo__quote::before, .depo__quote::after { display: none; }
+.depo__dot { width: 24px; height: 6px; border-radius: 3px; background: rgba(201, 169, 110, 0.35); transition: background 0.4s var(--ease-lux), width 0.4s var(--ease-lux); }
+.depo__dot[aria-selected="true"] { background: var(--caramel); width: 32px; }
+.depo__arrow { transition: background 0.4s var(--ease-lux), color 0.4s var(--ease-lux), border-color 0.4s var(--ease-lux), transform 0.4s var(--ease-lux); }
+.depo__arrow:hover { transform: translateY(-50%) scale(1.05); }
+
+/* Mosaic — overlay gradient caramel */
+.clinica__tile::after { background: linear-gradient(to top, rgba(184, 115, 51, 0.32) 0%, rgba(184, 115, 51, 0) 70%); mix-blend-mode: normal; }
+.clinica__tile:hover::after { opacity: 1; }
+
+/* Procedimentos — meta dl breathable + separator vertical */
+.proc-block__meta { gap: 0; padding: 20px 0; }
+.proc-block__meta > div { flex: 1; padding: 0 20px; border-left: 1px solid rgba(201, 169, 110, 0.35); }
+.proc-block__meta > div:first-child { padding-left: 0; border-left: none; }
+@media (max-width: 900px) {
+  .proc-block__meta { flex-wrap: wrap; }
+  .proc-block__meta > div { padding: 0 16px; }
+}
+
+/* Numeração decorativa Playfair italic em proc-block__label */
+.proc-block__label { position: relative; }
+
+/* Footer refinado */
+.footer__logo-script { font-size: 52px; }
+.footer__logo-italic { font-size: 26px; }
+.footer__brand { text-align: left; }
+.footer__nav a, .footer__social a { position: relative; display: inline-block; }
+.footer__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 100%; height: 1px;
+  background: var(--champagne);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease-lux);
+}
+.footer__nav a:hover::after { transform: scaleX(1); }
+.footer__social a { border-bottom: none; }
+.footer__social a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 1px;
+  background: var(--champagne);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease-lux);
+}
+.footer__social a:hover::after { transform: scaleX(1); }
+.footer__meta { border-top-color: rgba(201, 169, 110, 0.15); font-size: 10px; letter-spacing: 3px; }
+
+/* Nav links underline refinado */
+.nav__links a:not(.nav__cta) { position: relative; transition: color 0.4s var(--ease-lux); }
+.nav__links a:not(.nav__cta)::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 100%; height: 1px;
+  background: var(--caramel);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease-lux);
+}
+.nav__links a:not(.nav__cta):hover::after { transform: scaleX(1); }
+
+/* Contato — links com underline refinado */
+.contato__list a { position: relative; border-bottom: none; }
+.contato__list a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 1px;
+  background: var(--caramel);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s var(--ease-lux);
+}
+.contato__list a:hover { color: var(--caramel); }
+.contato__list a:hover::after { transform: scaleX(1); }
+
+/* Instagram tiles — rounding consistente */
+.insta__tile { border-radius: 2px; }
+
+/* prefers-reduced-motion reforço */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], .word { transform: none !important; opacity: 1 !important; transition: none !important; }
+  .chapter-hairline { width: 40px !important; }
+  [data-letter-spread] { letter-spacing: 4px !important; }
+  .depo__slide, .sec-card, .course-card, .faq__item, .btn, .proc-block__image img, .clinica__tile img, .insta__tile img { transition: none !important; }
+}
+

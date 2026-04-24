@@ -1,0 +1,53 @@
+<h2>Hero — qual layout?</h2>
+<p class="subtitle">Primeira dobra. Define tom inteiro.</p>
+
+<div class="cards">
+  <div class="card" data-choice="split-portrait" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#FAF6F1;min-height:280px;padding:0;">
+      <div style="display:grid;grid-template-columns:1.1fr 1fr;height:280px;">
+        <div style="padding:24px;display:flex;flex-direction:column;justify-content:center;background:#FAF6F1;">
+          <div style="font-size:8px;letter-spacing:3px;color:#8A3A3A;margin-bottom:10px;">SEGURA &amp; CO</div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;line-height:1.1;color:#1A1A1A;margin-bottom:8px;">Beleza com ciência.<br><em>Resultado com naturalidade.</em></div>
+          <div style="font-size:9px;color:#5A5A5A;margin-bottom:12px;">Há 13 anos harmonizando rostos em Catanduva &amp; Miami.</div>
+          <div style="display:flex;gap:6px;"><span style="background:#8A3A3A;color:#FAF6F1;padding:5px 10px;font-size:8px;border-radius:2px;">Agendar</span><span style="border:1px solid #1A1A1A;padding:5px 10px;font-size:8px;">Cursos</span></div>
+        </div>
+        <div style="background:linear-gradient(135deg,#D9B8A4 0%,#8A3A3A 100%);display:flex;align-items:center;justify-content:center;color:#FAF6F1;font-family:serif;font-style:italic;">retrato</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Split editorial</h3>
+      <p>Texto à esquerda, retrato à direita. Clássico luxo. Funciona com foto das irmãs.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="centered-minimal" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#FAF6F1;min-height:280px;padding:0;">
+      <div style="height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;position:relative;">
+        <div style="font-size:8px;letter-spacing:3px;color:#8A3A3A;margin-bottom:14px;">SEGURA &amp; CO · EST. 2013</div>
+        <div style="font-family:'Playfair Display',serif;font-size:28px;line-height:1.05;color:#1A1A1A;margin-bottom:10px;max-width:340px;">Harmonizando com <em>naturalidade</em>,<br>ciência &amp; sensibilidade.</div>
+        <div style="font-size:9px;color:#5A5A5A;margin-bottom:14px;">Dra. Carol Segura &middot; CROSP 109060</div>
+        <div style="display:flex;gap:6px;"><span style="background:#8A3A3A;color:#FAF6F1;padding:5px 10px;font-size:8px;">Agendar consulta</span><span style="border:1px solid #1A1A1A;padding:5px 10px;font-size:8px;">Conhecer cursos</span></div>
+        <div style="position:absolute;top:24px;left:24px;right:24px;bottom:24px;border:1px solid #C9A96E;pointer-events:none;"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Centered, moldura dourada</h3>
+      <p>Todo centralizado, hairline dourada. Poster-like. Mais formal, menos pessoal.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="fullbleed-overlay" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:linear-gradient(180deg,rgba(26,26,26,0.1) 0%,rgba(26,26,26,0.55) 100%),linear-gradient(135deg,#D9B8A4 0%,#8A3A3A 100%);min-height:280px;padding:0;color:#FAF6F1;">
+      <div style="height:280px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;">
+        <div style="font-size:8px;letter-spacing:3px;margin-bottom:10px;opacity:0.8;">SEGURA &amp; CO</div>
+        <div style="font-family:'Playfair Display',serif;font-size:26px;line-height:1.05;margin-bottom:8px;max-width:280px;">Beleza com ciência.<br><em>Resultado com naturalidade.</em></div>
+        <div style="font-size:9px;opacity:0.85;margin-bottom:12px;">Catanduva &middot; Miami</div>
+        <div style="display:flex;gap:6px;"><span style="background:#FAF6F1;color:#1A1A1A;padding:5px 10px;font-size:8px;">Agendar</span><span style="border:1px solid #FAF6F1;padding:5px 10px;font-size:8px;">Cursos VIP</span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Full-bleed imersivo</h3>
+      <p>Foto fullscreen com overlay escuro. Texto embaixo esquerda. Dramático, mood-driven.</p>
+    </div>
+  </div>
+</div>

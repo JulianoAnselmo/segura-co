@@ -398,7 +398,7 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 40%;
   box-shadow: inset 0 0 0 1px var(--champagne);
   will-change: transform;
 }
@@ -447,7 +447,7 @@ body::after {
   overflow: hidden;
   margin-bottom: var(--space-xl);
 }
-.sobre__strip img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.sobre__strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
 .sobre__strip-caption {
   position: absolute;
   left: 40px; bottom: 32px;
@@ -505,7 +505,7 @@ body::after {
   pointer-events: none;
   z-index: 2;
 }
-.proc-block__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-lux); }
+.proc-block__image img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform 1.2s var(--ease-lux); }
 .proc-block:hover .proc-block__image img { transform: scale(1.03); }
 
 .proc-block__body {
@@ -589,7 +589,7 @@ body::after {
   pointer-events: none;
   z-index: 2;
 }
-.cursos__img-frame img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
+.cursos__img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; will-change: transform; }
 .cursos__img-frame--kenburns img { animation: kenburns 22s ease-in-out infinite alternate; }
 @media (prefers-reduced-motion: reduce) { .cursos__img-frame--kenburns img { animation: none; } }
 
@@ -636,7 +636,7 @@ body::after {
   overflow: hidden;
   margin-top: var(--space-xl);
 }
-.cursos__strip img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.55); }
+.cursos__strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: brightness(0.55); }
 .cursos__strip-quote {
   position: absolute;
   inset: 0;
@@ -694,7 +694,7 @@ body::after {
   border: 1px solid rgba(201, 169, 110, 0.4);
   background: var(--rose);
 }
-.clinica__tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-lux); will-change: transform; }
+.clinica__tile img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform 1.2s var(--ease-lux); will-change: transform; }
 .clinica__tile::after {
   content: '';
   position: absolute;
@@ -809,7 +809,7 @@ body::after {
 .insta__title { font-size: clamp(48px, 8vw, 120px); line-height: 0.94; letter-spacing: -2.5px; margin-top: var(--space-sm); }
 .insta__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
 .insta__tile { position: relative; aspect-ratio: 1 / 1; overflow: hidden; display: block; }
-.insta__tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-lux), filter 0.5s var(--ease); }
+.insta__tile img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform 0.8s var(--ease-lux), filter 0.5s var(--ease); }
 .insta__overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(26, 26, 26, 0.6); color: var(--cream); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0; transition: opacity var(--dur) var(--ease); }
 .insta__tile:hover .insta__overlay { opacity: 1; }
 .insta__tile:hover img { transform: scale(1.06); }

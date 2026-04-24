@@ -345,3 +345,13 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
   .footer__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
   .footer__meta { flex-direction: column; align-items: flex-start; gap: var(--space-xs); }
 }
+
+/* === Foco acessível === */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--caramel);
+  outline-offset: 3px;
+}
+
+/* === Skip link === */
+.skip { position: absolute; top: -40px; left: 16px; padding: 8px 16px; background: var(--black); color: var(--cream); z-index: 200; transition: top var(--dur) var(--ease); }
+.skip:focus { top: 16px; }

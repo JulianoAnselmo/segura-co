@@ -341,7 +341,7 @@ body::after {
 }
 .hero__grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 0.85fr 1.25fr;
   min-height: calc(100vh - 72px);
   max-width: var(--max-w);
   margin: 0 auto;

@@ -226,3 +226,25 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
   .cursos__image { aspect-ratio: 4 / 3; }
   .cursos__body { padding: var(--space-lg) var(--gutter-mobile); }
 }
+
+/* === Clínica === */
+.clinica { padding: var(--space-xl) 0; background: var(--cream); }
+.clinica__header { text-align: center; max-width: 720px; margin: 0 auto var(--space-xl); }
+.clinica__title { font-size: clamp(30px, 4vw, 44px); margin-top: var(--space-sm); }
+.clinica__intro { margin-top: var(--space-md); font-size: 16px; color: var(--brown); line-height: 1.7; }
+.clinica__mosaic { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 12px; }
+.clinica__tile { overflow: hidden; background: var(--rose); }
+.clinica__tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.clinica__tile:hover img { transform: scale(1.04); }
+.clinica__tile--tall { grid-row: span 2; }
+.clinica__tile--wide { grid-column: span 2; }
+
+@media (max-width: 900px) {
+  .clinica__mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+  .clinica__tile--tall { grid-row: span 2; }
+  .clinica__tile--wide { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .clinica__mosaic { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+  .clinica__tile--tall, .clinica__tile--wide { grid-row: span 1; grid-column: span 1; }
+}

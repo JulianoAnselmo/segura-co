@@ -448,7 +448,7 @@ body::after {
 @media (max-width: 900px) {
   .hero__grid { grid-template-columns: 1fr; min-height: auto; }
   .hero__text { padding: var(--space-xl) var(--gutter-mobile) var(--space-lg); }
-  .hero__image { height: 70vh; min-height: 480px; }
+  .hero__image { display: none; }
   .hero__title { font-size: clamp(48px, 9vw, 80px); letter-spacing: -2px; }
   .hero__spotlight { display: none; }
 }

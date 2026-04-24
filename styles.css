@@ -292,3 +292,36 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
 @media (max-width: 600px) {
   .insta__grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* === Contato === */
+.contato { padding: var(--space-xl) 0; background: #F5EFE7; }
+.contato__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start; }
+.contato__title { font-size: clamp(32px, 4vw, 48px); margin-top: var(--space-sm); }
+.contato__sub { font-size: 16px; color: var(--brown); margin-top: var(--space-md); max-width: 420px; }
+.contato__list { margin-top: var(--space-lg); display: grid; gap: var(--space-md); }
+.contato__list > div { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 1px solid rgba(201, 169, 110, 0.3); }
+.contato__list dt { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 500; }
+.contato__list dd { font-size: 15px; color: var(--black); }
+.contato__list a { border-bottom: 1px solid transparent; transition: border-color var(--dur) var(--ease); }
+.contato__list a:hover { border-color: var(--caramel); color: var(--caramel); }
+.contato__form { background: var(--cream); padding: var(--space-lg); display: grid; gap: var(--space-md); border: 1px solid rgba(201, 169, 110, 0.4); }
+.field { display: grid; gap: 6px; }
+.field span { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 500; }
+.field input, .field select, .field textarea {
+  font: inherit; font-size: 15px; color: var(--black);
+  padding: 12px 0; border: none; border-bottom: 1px solid rgba(26, 26, 26, 0.2);
+  background: transparent; transition: border-color var(--dur) var(--ease);
+  resize: vertical;
+}
+.field textarea { min-height: 80px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--caramel); }
+.field input:invalid:not(:placeholder-shown), .field select:invalid:not([value=""]) { border-color: #B44; }
+.contato__submit { margin-top: var(--space-sm); justify-self: start; }
+.contato__status { font-size: 13px; color: var(--brown); min-height: 20px; }
+.contato__status.is-error { color: #B44; }
+.contato__status.is-ok { color: var(--caramel); }
+
+@media (max-width: 900px) {
+  .contato__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .contato__list > div { grid-template-columns: 100px 1fr; }
+}

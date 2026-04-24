@@ -295,6 +295,57 @@
     </div>
   </div>
 </section>
+  <section id="contato" class="contato" aria-labelledby="contato-title">
+  <div class="container">
+    <div class="contato__grid">
+      <div class="contato__info" data-reveal>
+        <span class="label">Agendamento</span>
+        <h2 id="contato-title" class="h-serif contato__title">Vamos <em class="italic">conversar</em>.</h2>
+        <p class="contato__sub">Escolha o formato que preferir. Retornamos em até 24h úteis.</p>
+        <dl class="contato__list">
+          <div><dt>Clínica</dt><dd>Catanduva-SP · Brasil</dd></div>
+          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/5517999999999">+55 (17) 99999-9999</a></dd></div>
+          <div><dt>E-mail</dt><dd><a href="mailto:contato@seguraeco.com">contato@seguraeco.com</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener">@seguraecompany</a> · <a href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener">@dra.carolsegura</a></dd></div>
+          <div><dt>Horários</dt><dd>Segunda a sexta · 9h às 19h</dd></div>
+        </dl>
+      </div>
+      <form class="contato__form" id="contato-form" data-reveal novalidate>
+        <label class="field">
+          <span>Nome</span>
+          <input type="text" name="nome" required autocomplete="name">
+        </label>
+        <label class="field">
+          <span>WhatsApp</span>
+          <input type="tel" name="whatsapp" required autocomplete="tel" placeholder="(17) 99999-9999">
+        </label>
+        <label class="field">
+          <span>Procedimento de interesse</span>
+          <select name="procedimento" required>
+            <option value="">Selecione</option>
+            <option>Harmonização Facial</option>
+            <option>Rinomodelação</option>
+            <option>Preenchimento Labial</option>
+            <option>Botox</option>
+            <option>Bioestimuladores (PDRN)</option>
+            <option>Tratamento de Olheiras</option>
+            <option>Bichectomia</option>
+            <option>Lipo de Papada</option>
+            <option>LAVIEEN</option>
+            <option>Cursos VIP (profissional)</option>
+            <option>Outro</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Mensagem</span>
+          <textarea name="mensagem" rows="4"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary contato__submit">Enviar</button>
+        <p class="contato__status" id="contato-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
   <!-- Seções inseridas nas próximas tasks -->
   <script src="script.js" defer></script>
 </body>

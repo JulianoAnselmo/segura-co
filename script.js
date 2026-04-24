@@ -72,4 +72,34 @@ function initCarousel() {
   carousel.addEventListener('mouseenter', () => clearInterval(timer));
   carousel.addEventListener('mouseleave', () => { timer = setInterval(() => go(idx + 1), 7000); });
 }
-function initForm() { /* preenchido na Task 11 */ }
+function initForm() {
+  const form = document.getElementById('contato-form');
+  if (!form) return;
+  const status = document.getElementById('contato-status');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status.className = 'contato__status';
+    status.textContent = '';
+
+    const data = new FormData(form);
+    const nome = (data.get('nome') || '').toString().trim();
+    const whatsapp = (data.get('whatsapp') || '').toString().trim();
+    const proc = (data.get('procedimento') || '').toString();
+    const msg = (data.get('mensagem') || '').toString().trim();
+
+    if (!nome || !whatsapp || !proc) {
+      status.textContent = 'Preencha nome, WhatsApp e procedimento.';
+      status.classList.add('is-error');
+      return;
+    }
+
+    const subject = encodeURIComponent(`Novo contato — ${proc}`);
+    const body = encodeURIComponent(
+      `Nome: ${nome}\nWhatsApp: ${whatsapp}\nProcedimento: ${proc}\n\nMensagem:\n${msg}`
+    );
+    window.location.href = `mailto:contato@seguraeco.com?subject=${subject}&body=${body}`;
+    status.textContent = 'Abrindo seu e-mail…';
+    status.classList.add('is-ok');
+  });
+}

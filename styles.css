@@ -1,0 +1,59 @@
+/* === Tokens === */
+:root {
+  --cream: #FAF6F1;
+  --caramel: #B87333;
+  --champagne: #C9A96E;
+  --rose: #D9B8A4;
+  --brown: #5A4A42;
+  --black: #1A1A1A;
+  --muted: #8A7A70;
+  --font-script: 'Parisienne', cursive;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+  --max-w: 1280px;
+  --gutter: 40px;
+  --gutter-mobile: 20px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 0.4s;
+}
+
+/* === Reset === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--brown);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+
+/* === Utilitários === */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-family: var(--font-sans); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 500; }
+.h-serif { font-family: var(--font-serif); font-weight: 400; color: var(--black); line-height: 1.1; letter-spacing: -0.5px; }
+.italic { font-style: italic; }
+.btn { display: inline-block; font-family: var(--font-sans); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; padding: 16px 32px; transition: all var(--dur) var(--ease); cursor: pointer; }
+.btn-primary { background: var(--black); color: var(--cream); }
+.btn-primary:hover { background: var(--caramel); }
+.btn-outline { border: 1px solid var(--black); color: var(--black); }
+.btn-outline:hover { background: var(--black); color: var(--cream); }
+
+/* === Responsivo base === */
+@media (max-width: 900px) {
+  .container { padding: 0 var(--gutter-mobile); }
+}

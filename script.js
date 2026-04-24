@@ -39,5 +39,37 @@ function initMobileMenu() {
     menu.hidden = true;
   }));
 }
-function initCarousel() { /* preenchido na Task 9 */ }
+function initCarousel() {
+  const track = document.getElementById('depo-track');
+  if (!track) return;
+  const slides = Array.from(track.querySelectorAll('.depo__slide'));
+  const dotsBox = document.querySelector('.depo__dots');
+  const prev = document.querySelector('.depo__arrow--prev');
+  const next = document.querySelector('.depo__arrow--next');
+  let idx = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'depo__dot';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Depoimento ${i + 1}`);
+    dot.setAttribute('aria-selected', String(i === 0));
+    dot.addEventListener('click', () => go(i));
+    dotsBox.appendChild(dot);
+  });
+
+  function go(n) {
+    idx = (n + slides.length) % slides.length;
+    slides.forEach((s, i) => s.setAttribute('aria-hidden', String(i !== idx)));
+    dotsBox.querySelectorAll('.depo__dot').forEach((d, i) => d.setAttribute('aria-selected', String(i === idx)));
+  }
+
+  prev.addEventListener('click', () => go(idx - 1));
+  next.addEventListener('click', () => go(idx + 1));
+
+  let timer = setInterval(() => go(idx + 1), 7000);
+  const carousel = document.querySelector('.depo__carousel');
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', () => { timer = setInterval(() => go(idx + 1), 7000); });
+}
 function initForm() { /* preenchido na Task 11 */ }

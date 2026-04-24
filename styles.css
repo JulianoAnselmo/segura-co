@@ -190,3 +190,17 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
 @media (max-width: 600px) {
   .servicos__grid { grid-template-columns: 1fr; }
 }
+
+/* === Filosofia === */
+.filosofia { padding: var(--space-xl) 0; background: var(--cream); }
+.filosofia__header { text-align: center; max-width: 720px; margin: 0 auto var(--space-xl); }
+.filosofia__title { font-size: clamp(30px, 4vw, 44px); margin-top: var(--space-sm); }
+.filosofia__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+.pilar { text-align: center; padding: 0 var(--space-md); }
+.pilar__icon { width: 48px; height: 48px; color: var(--caramel); margin: 0 auto var(--space-md); }
+.pilar__title { font-size: 26px; margin-bottom: var(--space-sm); }
+.pilar__desc { font-size: 15px; line-height: 1.7; color: var(--brown); }
+
+@media (max-width: 900px) {
+  .filosofia__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+}

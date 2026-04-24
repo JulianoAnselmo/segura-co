@@ -393,20 +393,20 @@ body::after {
 .hero__image {
   position: relative;
   overflow: hidden;
+  background: #1a1512;
 }
 .hero__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
-  box-shadow: inset 0 0 0 1px var(--champagne);
+  object-fit: contain;
+  object-position: center;
   will-change: transform;
 }
 .hero__image::after {
   content: '';
   position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(201, 169, 110, 0.6);
+  inset: 0;
+  border: 1px solid rgba(201, 169, 110, 0.4);
   pointer-events: none;
   z-index: 2;
 }
@@ -443,11 +443,12 @@ body::after {
 .sobre__strip {
   position: relative;
   width: 100%;
-  aspect-ratio: 21 / 9;
+  max-width: 1400px;
+  margin: 0 auto var(--space-xl);
   overflow: hidden;
-  margin-bottom: var(--space-xl);
+  background: var(--cream);
 }
-.sobre__strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.sobre__strip img { width: 100%; height: auto; display: block; }
 .sobre__strip-caption {
   position: absolute;
   left: 40px; bottom: 32px;
@@ -458,7 +459,6 @@ body::after {
   line-height: 1;
 }
 @media (max-width: 900px) {
-  .sobre__strip { aspect-ratio: 4 / 3; }
   .sobre__strip-caption { left: 20px; bottom: 20px; }
 }
 
@@ -632,24 +632,20 @@ body::after {
 .cursos__strip {
   position: relative;
   width: 100%;
-  aspect-ratio: 5 / 1;
   overflow: hidden;
   margin-top: var(--space-xl);
+  background: linear-gradient(135deg, #2a1e17 0%, var(--caramel) 100%);
+  padding: clamp(56px, 9vw, 112px) var(--gutter);
+  border-top: 1px solid rgba(201, 169, 110, 0.3);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
 }
-.cursos__strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: brightness(0.55); }
 .cursos__strip-quote {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(18px, 2.4vw, 32px);
+  font-size: clamp(20px, 2.8vw, 36px);
   color: var(--cream);
   line-height: 1.4;
-  padding: 0 var(--gutter);
   max-width: 900px;
   margin: 0 auto;
   font-weight: 400;
@@ -658,7 +654,7 @@ body::after {
 @media (max-width: 900px) {
   .cursos__grid { grid-template-columns: 1fr; gap: var(--space-lg); padding: 0 var(--gutter-mobile); }
   .cursos__cards { grid-template-columns: 1fr; }
-  .cursos__strip { aspect-ratio: 3 / 1; }
+  .cursos__strip { padding: 56px var(--gutter-mobile); }
 }
 
 /* === Clínica === */

@@ -204,3 +204,25 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
 @media (max-width: 900px) {
   .filosofia__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
 }
+
+/* === Cursos === */
+.cursos { background: var(--black); color: var(--cream); }
+.cursos__grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 640px; max-width: var(--max-w); margin: 0 auto; }
+.cursos__image { overflow: hidden; }
+.cursos__image img { width: 100%; height: 100%; object-fit: cover; }
+.cursos__body { padding: var(--space-xl) var(--gutter); display: flex; flex-direction: column; justify-content: center; gap: var(--space-md); }
+.cursos__eyebrow { color: var(--champagne) !important; }
+.cursos__title { color: var(--cream); font-size: clamp(32px, 4vw, 48px); }
+.cursos__desc { font-size: 16px; line-height: 1.7; color: rgba(250, 246, 241, 0.85); }
+.cursos__desc strong { color: var(--champagne); font-weight: 500; }
+.cursos__bullets { list-style: none; display: grid; gap: var(--space-xs); font-size: 14px; color: rgba(250, 246, 241, 0.85); }
+.cursos__bullets li { padding-left: 20px; position: relative; }
+.cursos__bullets li::before { content: "—"; position: absolute; left: 0; color: var(--caramel); }
+.cursos__cta { align-self: flex-start; background: var(--cream); color: var(--black); margin-top: var(--space-sm); }
+.cursos__cta:hover { background: var(--caramel); color: var(--cream); }
+
+@media (max-width: 900px) {
+  .cursos__grid { grid-template-columns: 1fr; min-height: auto; }
+  .cursos__image { aspect-ratio: 4 / 3; }
+  .cursos__body { padding: var(--space-lg) var(--gutter-mobile); }
+}

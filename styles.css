@@ -166,3 +166,27 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
 @media (max-width: 900px) {
   .sobre__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
 }
+
+/* === Serviços === */
+.servicos { padding: var(--space-xl) 0; background: #F5EFE7; }
+.servicos__header { text-align: center; max-width: 720px; margin: 0 auto var(--space-xl); }
+.servicos__title { font-size: clamp(32px, 4vw, 48px); margin-top: var(--space-sm); }
+.servicos__intro { margin-top: var(--space-md); font-size: 16px; color: var(--brown); }
+.servicos__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201, 169, 110, 0.3); border: 1px solid rgba(201, 169, 110, 0.3); }
+.service { background: #F5EFE7; padding: var(--space-lg) var(--space-md); display: flex; flex-direction: column; gap: var(--space-sm); transition: background var(--dur) var(--ease); }
+.service:hover { background: var(--cream); }
+.service__icon { width: 36px; height: 36px; color: var(--caramel); margin-bottom: var(--space-xs); }
+.service__title { font-size: 22px; }
+.service__desc { font-size: 14px; line-height: 1.6; color: var(--brown); flex: 1; }
+.service__link { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--black); border-bottom: 1px solid var(--champagne); align-self: flex-start; padding-bottom: 2px; }
+.service__link:hover { color: var(--caramel); border-color: var(--caramel); }
+.service--feature { grid-column: span 1; }
+.service__photo { aspect-ratio: 4 / 3; overflow: hidden; margin-bottom: var(--space-sm); }
+.service__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 900px) {
+  .servicos__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .servicos__grid { grid-template-columns: 1fr; }
+}

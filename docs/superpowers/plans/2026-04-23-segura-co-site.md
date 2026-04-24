@@ -401,7 +401,7 @@ Após `</header>`:
       </div>
     </div>
     <div class="hero__image" data-reveal>
-      <img src="imagens/foto-doutora.jpg" alt="Dra. Carol Segura" width="900" height="1200">
+      <img src="imagens/foto-doutora.webp" alt="Dra. Carol Segura" width="900" height="1200">
       <span class="hero__signature">Dra. Carol Segura</span>
       <span class="hero__counter">01 / 04</span>
     </div>
@@ -490,7 +490,7 @@ Após hero:
     </div>
     <div class="sobre__grid">
       <article class="doctor" data-reveal>
-        <div class="doctor__photo"><img src="imagens/foto-doutora.jpg" alt="Dra. Carol Segura" loading="lazy" width="600" height="800"></div>
+        <div class="doctor__photo"><img src="imagens/foto-doutora.webp" alt="Dra. Carol Segura" loading="lazy" width="600" height="800"></div>
         <div class="doctor__body">
           <span class="doctor__tag">CROSP 109060 · Verificada</span>
           <h3 class="h-serif doctor__name">Dra. Carol Segura</h3>
@@ -499,7 +499,7 @@ Após hero:
         </div>
       </article>
       <article class="doctor" data-reveal>
-        <div class="doctor__photo"><img src="imagens/foto-doutora-2.jpg" alt="Dra. Juliana Segura" loading="lazy" width="600" height="800"></div>
+        <div class="doctor__photo"><img src="imagens/foto-doutora-2.webp" alt="Dra. Juliana Segura" loading="lazy" width="600" height="800"></div>
         <div class="doctor__body">
           <span class="doctor__tag">Sócia · Cofundadora</span>
           <h3 class="h-serif doctor__name">Dra. Juliana Segura</h3>
@@ -614,7 +614,7 @@ git commit -m "feat: seção Sobre com duas doutoras"
         <a href="#contato" class="service__link">Saiba mais →</a>
       </article>
       <article class="service service--feature" data-reveal>
-        <div class="service__photo"><img src="imagens/maquina-lavieen.jpg" alt="Tratamento LAVIEEN" loading="lazy" width="600" height="400"></div>
+        <div class="service__photo"><img src="imagens/maquina-lavieen.webp" alt="Tratamento LAVIEEN" loading="lazy" width="600" height="400"></div>
         <h3 class="h-serif service__title">LAVIEEN</h3>
         <p class="service__desc">Tecnologia coreana de rejuvenescimento: melhora textura, poros e luminosidade sem downtime.</p>
         <a href="#contato" class="service__link">Saiba mais →</a>
@@ -740,7 +740,7 @@ git commit -m "feat: três pilares (ciência, naturalidade, sensibilidade)"
 <section id="cursos" class="cursos" aria-labelledby="cursos-title">
   <div class="cursos__grid">
     <div class="cursos__image" data-reveal>
-      <img src="imagens/foto-curso-1.jpg" alt="Curso VIP de harmonização" loading="lazy" width="900" height="1100">
+      <img src="imagens/foto-curso-1.webp" alt="Curso VIP de harmonização" loading="lazy" width="900" height="1100">
     </div>
     <div class="cursos__body" data-reveal>
       <span class="label cursos__eyebrow">Para profissionais injetores</span>
@@ -810,12 +810,12 @@ git commit -m "feat: seção cursos VIP em faixa dark"
       <p class="clinica__intro">Inaugurada recentemente em Catanduva, a Segura & Co nasceu pra unir experiência clínica e conforto. Cada detalhe — da iluminação à escolha dos materiais — foi pensado pra que você se sinta em casa.</p>
     </div>
     <div class="clinica__mosaic">
-      <div class="clinica__tile clinica__tile--tall" data-reveal><img src="imagens/escada-lustres.jpg" alt="Escada com lustres da clínica" loading="lazy" width="600" height="900"></div>
-      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-1.jpg" alt="Recepção" loading="lazy" width="600" height="450"></div>
-      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-3.jpg" alt="Sala de atendimento" loading="lazy" width="600" height="450"></div>
-      <div class="clinica__tile clinica__tile--wide" data-reveal><img src="imagens/foto-espaco-marca.jpg" alt="Espaço da marca" loading="lazy" width="900" height="500"></div>
-      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-6.jpg" alt="Detalhe do espaço" loading="lazy" width="600" height="450"></div>
-      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-8.jpg" alt="Ambiente interno" loading="lazy" width="600" height="450"></div>
+      <div class="clinica__tile clinica__tile--tall" data-reveal><img src="imagens/escada-lustres.webp" alt="Escada com lustres da clínica" loading="lazy" width="600" height="900"></div>
+      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-1.webp" alt="Recepção" loading="lazy" width="600" height="450"></div>
+      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-3.webp" alt="Sala de atendimento" loading="lazy" width="600" height="450"></div>
+      <div class="clinica__tile clinica__tile--wide" data-reveal><img src="imagens/foto-espaco-marca.webp" alt="Espaço da marca" loading="lazy" width="900" height="500"></div>
+      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-6.webp" alt="Detalhe do espaço" loading="lazy" width="600" height="450"></div>
+      <div class="clinica__tile" data-reveal><img src="imagens/foto-clinica-interna-8.webp" alt="Ambiente interno" loading="lazy" width="600" height="450"></div>
     </div>
   </div>
 </section>
@@ -996,12 +996,12 @@ git commit -m "feat: carrossel de depoimentos com auto-advance"
       <h2 id="insta-title" class="h-serif insta__title">Siga o <em class="italic">bastidor</em>.</h2>
     </div>
     <div class="insta__grid" data-reveal>
-      <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
-      <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem-2.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
-      <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem-3.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
-      <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/colagem-4.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
-      <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/foto-marca-conceitual.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
-      <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/seguraeco.jpg" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
+      <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem.webp" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
+      <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem-2.webp" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
+      <a class="insta__tile" href="https://www.instagram.com/dra.carolsegura/" target="_blank" rel="noopener"><img src="imagens/colagem-3.webp" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@dra.carolsegura →</span></a>
+      <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/colagem-4.webp" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
+      <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/foto-marca-conceitual.webp" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
+      <a class="insta__tile" href="https://www.instagram.com/seguraecompany/" target="_blank" rel="noopener"><img src="imagens/seguraeco.webp" alt="Post Instagram" loading="lazy" width="400" height="400"><span class="insta__overlay">@seguraecompany →</span></a>
     </div>
   </div>
 </section>
